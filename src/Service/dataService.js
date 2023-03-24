@@ -15,7 +15,6 @@ const setCurrentRole = (role) => {
 const getCurrentRole = () => {
     let currentRole = sessionStorage.getItem('currentRole')
     if(currentRole === null) return ' '
-    console.log(currentRole);
     return currentRole
 }
 const isUserLoggedIn = () => {

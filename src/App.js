@@ -2,6 +2,8 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 
+import "../node_modules/jquery/dist/jquery.min.js";
+
 import './App.css';
 import {BrowserRouter  as Router, Routes, Route, Navigate } from 'react-router-dom';
 import dataService from "./Service/dataService";

@@ -93,12 +93,12 @@ const menu =()=> {
     let admin = "ADMIN";
     let manager = "MANAGER"
     let currentRole = dataService.getCurrentRole()
-    console.log("CurrentRole",currentRole)
+    let withoutFirstAndLast = currentRole.slice(1,-1);
 
-    if(currentRole === admin) {
+    if(withoutFirstAndLast === admin) {
         return menuadmin;
     }
-    else if(currentRole === manager) {
+    else if(withoutFirstAndLast === manager) {
         return menumanager;
     }
     else{
