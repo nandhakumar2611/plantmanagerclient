@@ -3,7 +3,7 @@ import dataService from "../../Service/dataService";
 const menuadmin = [
     {
         title: 'Home',
-        url : '/dashboard',
+        url : '/admindashboard',
     },
     {
         title: 'Service Admin',
@@ -15,7 +15,7 @@ const menuadmin = [
             },
             {
                 title: 'Web development',
-                url: '/table',
+                url: '/profile',
             },
             {
                 title: 'SEO',
@@ -33,7 +33,7 @@ const menuadmin = [
 const menumanager = [
     {
         title: 'Home',
-        url : '/dashboardM',
+        url : '/managerdashboard',
     },
     {
         title: 'Service manager',
@@ -62,7 +62,7 @@ const menumanager = [
 const menuuser = [
     {
         title: 'Home',
-        url : '/dashboardU',
+        url : '/userdashboard',
     },
     {
         title: 'Service user',
@@ -89,16 +89,13 @@ const menuuser = [
 ]
 
 const menu =()=> {
-
-    let admin = "ADMIN";
-    let manager = "MANAGER"
+    
     let currentRole = dataService.getCurrentRole()
-    let withoutFirstAndLast = currentRole.slice(1,-1);
-
-    if(withoutFirstAndLast === admin) {
+    
+    if(currentRole === "ADMIN") {
         return menuadmin;
     }
-    else if(withoutFirstAndLast === manager) {
+    else if(currentRole === "MANAGER") {
         return menumanager;
     }
     else{

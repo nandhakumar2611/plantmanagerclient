@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import routes from '../Routes/routes'
+import dataService from "../../Service/dataService";
+
 const Content = () => {
 
     const loading = (
@@ -10,6 +12,22 @@ const Content = () => {
           </div>
         </div>
       )
+
+    const dashboardfinder =()=> {
+
+      let currentRole = dataService.getCurrentRole()
+  
+      if(currentRole === "ADMIN") {
+          return "admindashboard";
+      }
+      else if(currentRole === "MANAGER") {
+          return "managerdashboard";
+      }
+      else{
+          return "userdashboard";
+      }
+  }
+    
 
   return (
     <div className="container">
@@ -28,7 +46,7 @@ const Content = () => {
                     )
                   )
                 })}
-                <Route path="/" element= {<Navigate to="dashboard" replace/>} />
+                <Route path="/" element= {<Navigate to={dashboardfinder()} replace/>} />
             </Routes>
         </Suspense>
     </div>

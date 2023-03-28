@@ -8,8 +8,16 @@ const setUser = (user) => {
     sessionStorage.setItem('user',JSON.stringify(user))
 }
 
+const getUser = () => {
+    let user = JSON.parse(sessionStorage.getItem('user')) //sessionStorage.getItem('user')
+    if(user === null) return ' '
+    return user
+}
+
 const setCurrentRole = (role) => {
-    sessionStorage.setItem('currentRole',JSON.stringify(role[0]))
+    // sessionStorage.setItem('currentRole',JSON.stringify(role[0]))
+    // sessionStorage.setItem('currentRole',JSON.stringify(role))
+    sessionStorage.setItem('currentRole',role)
 }
 
 const getCurrentRole = () => {
@@ -25,6 +33,7 @@ const isUserLoggedIn = () => {
 const exportedObject = {
     exe,
     setUser,
+    getUser,
     isUserLoggedIn,
     setCurrentRole,
     getCurrentRole

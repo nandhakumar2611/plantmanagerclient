@@ -28,7 +28,7 @@ const Login = () => {
 
         if(data != null){
           dataService.setUser(data)
-          dataService.setCurrentRole(data.roles)
+          dataService.setCurrentRole(data.roles[0])
           window.location.href='/'
         }
         else {
