@@ -22,7 +22,7 @@ const User = () => {
       role:role
     }
     console.log('PRINTING POSTDATA - ADD USER',postData);
-    dataService.exe("auth/signup",postData)
+    dataService.postexe("auth/signup",postData)
       .then(response => {
         console.log('USER ADDED SUCCESSFULLY',response.data);
       })
@@ -45,27 +45,13 @@ const User = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-xl-4">
-          {/* <!-- Profile picture card--> */}
-          <div className="card mb-4 mb-xl-0">
-            <div className="card-header">Profile Picture</div>
-            <div className="card-body text-center">
-              {/* <!-- Profile picture image--> */}
-              <img className="img-account-profile rounded-circle mb-2" src={image1} height={"20%"} width={"20%"} alt=""></img>
-              {/* <!-- Profile picture help block--> */}
-              <div className="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-              {/* <!-- Profile picture upload button--> */}
-              <button className="btn btn-primary" type="button">Upload new image</button>
-            </div>
-          </div>
-        </div>
         <div className="col-xl-8">
-          {/* <!-- Account details card--> */}
+          {/*  Account details card */}
           <div className="card mb-4">
             <div className="card-header">Account Details</div>
             <div className="card-body">
               <form onSubmit={submitform}>
-                {/* <!-- Form Group (username)--> */}
+                {/*  Form Group (username) */}
                 <div className="mb-3">
                   <label className="small mb-1" htmlFor="inputUsername">Username (how your name will appear to other users on the site)</label>
                   <input 
@@ -76,7 +62,7 @@ const User = () => {
                     onChange={evevt => setUserName(evevt.target.value)} > 
                   </input>
                 </div>
-                {/* <!-- Form Group (email address)--> */}
+                {/*  Form Group (email address)--> */}
                 <div className="mb-3">
                   <label className="small mb-1" htmlFor="inputEmailAddress">Email address</label>
                   <input 
@@ -87,9 +73,9 @@ const User = () => {
                     onChange={evevt => setEmail(evevt.target.value)} >   
                   </input>
                 </div>
-                {/* <!-- Form Row --> */}
+                {/*  Form Row --> */}
                 <div className="row gx-3 mb-3">
-                  {/* <!-- Form Group (Contact No)--> */}
+                  {/*  Form Group (Contact No)--> */}
                   <div className="col-md-6">
                     <label className="small mb-1" htmlFor="inputContactNo">Contact No</label>
                     <input 
@@ -100,7 +86,7 @@ const User = () => {
                       onChange={evevt => setContact(evevt.target.value)} >    
                     </input>
                   </div>
-                  {/* <!-- Form Group (Password)--> */}
+                  {/*  Form Group (Password)--> */}
                   <div className="col-md-6">
                     <label className="small mb-1" htmlFor="inputPassword">Password</label>
                     <input 
@@ -112,9 +98,9 @@ const User = () => {
                     </input>
                   </div>
                 </div>
-                {/* <!-- Form Row--> */}
+                {/*  Form Row--> */}
                 <div className="row gx-3 mb-3">
-                  {/* <!-- Form Group (Role)--> */}
+                  {/*  Form Group (Role)--> */}
                   <div className="col-md-6">
                     <label className="small mb-1" htmlFor="inputRole">Role</label>
                     <Select 
@@ -125,7 +111,7 @@ const User = () => {
                     {/* </Select> */}
                   </div>
                 </div>
-                {/* <!-- Save changes button--> */}
+                {/*  Save changes button--> */}
                 <button className="btn btn-primary" type="submit">Save changes</button>
               </form>
             </div>

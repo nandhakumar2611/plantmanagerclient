@@ -3,6 +3,7 @@ import dataService from "../../Service/dataService";
 
 const Login = () => {
 
+    let [loginAlert,setLoginAlert]=useState(false)
     let [username,setUserName]=useState('')
     let [Password,setPassword]=useState('')
 
@@ -14,13 +15,14 @@ const Login = () => {
             password:Password
         }
         console.log('PRINTING POSTDATA - LOGIN', postData);
-        dataService.exe("/auth/signin",postData)
+        dataService.postexe("/auth/signin",postData)
             .then(response => {
               console.log('LOGIN SUCCESSFULLY', response.data);
               initLogin(response.data)
             })
             .catch(error => {
-              console.log('SOMETHING WRONG', error);
+                setLoginAlert(true)
+              console.error('SOMETHING WRONG', error);
             })
     }
 
@@ -29,11 +31,17 @@ const Login = () => {
         if(data != null){
           dataService.setUser(data)
           dataService.setCurrentRole(data.roles[0])
+          dataService.setAccessToken(data.accessToken)
           window.location.href='/'
         }
         else {
-          console.log('ERROR')
+            setLoginAlert(true)
+          console.error("ERROR")
         }
+    }
+
+    const clearLogin=()=>{
+        dataService.logout()
     }
 
     return (
@@ -46,6 +54,18 @@ const Login = () => {
                             <div className="card-body p-4 p-sm-5">
                                 <h5 className="card-title text-center mb-5 fw-bold fs-5">Log in to your account</h5>
                                 <form onSubmit={submitform}>
+                                    {loginAlert && (
+                                        <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                                         username and Password is Wrong...
+                                        <button 
+                                            type="button" 
+                                            className="btn-close" 
+                                            data-bs-dismiss="alert" 
+                                            aria-label="Close" 
+                                            onClick={()=>setLoginAlert(false)}>
+                                        </button>
+                                        </div>
+                                    )}
                                     {/* Form Group (username)  */}
                                     <div className="mb-3">
                                         <label className="mb-2" htmlFor="inputUsername">Username</label>
@@ -84,6 +104,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            {clearLogin()}
         </div>
     )
 }

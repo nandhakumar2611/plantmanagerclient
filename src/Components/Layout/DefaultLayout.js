@@ -3,16 +3,18 @@ import Header from '../Header/Header'
 import Content from '../Content/Content'
 import Footer from '../Footer/Footer'
 import MenuNavbar from '../Navbar/MenuNavbar'
-// import Profile from '../../Pages/Profile/Profile'
 
 const DefaultLayout = () => {
   return (
-    <div>
+    <div className="d-flex flex-column">
         <Header/>
-        <MenuNavbar/>
-        <Content/>
-        <Footer/>
-        {/* <Profile/> */}
+        <div>
+          <MenuNavbar/>
+          <div className="body pt-1 pb-5 bg-light">
+            <Content/>
+          </div>
+          <Footer/>
+        </div>
     </div>
   )
 }

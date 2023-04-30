@@ -6,19 +6,27 @@ const menuadmin = [
         url : '/admindashboard',
     },
     {
-        title: 'Service Admin',
+        title: 'Admin Master',
         url : '/',
         submenu: [
             {
-                title: 'Web design',
-                url: '/user',
+                title: 'User',
+                url: '/userview',
             },
             {
-                title: 'Web development',
-                url: '/profile',
+                title: 'Machine',
+                url: '/machine',
             },
             {
-                title: 'SEO',
+                title: 'MachineView',
+                url: '/machineview',
+            },
+            {
+                title: 'Operation',
+                url: '/dashboard',
+            },
+            {
+                title: 'Raw Material',
                 url: '/dashboard',
             },
         ],

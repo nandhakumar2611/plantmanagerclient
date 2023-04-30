@@ -7,8 +7,8 @@ const Content = () => {
 
     const loading = (
         <div className="text-center">
-          <div className="spinner-border" role="status">
-            <span className="sr-only">Loading...</span>
+          <div className="spinner-border danger" role="status">
+          <span className="sr-only">Loading...</span>
           </div>
         </div>
       )
@@ -23,24 +23,24 @@ const Content = () => {
       else if(currentRole === "MANAGER") {
           return "managerdashboard";
       }
-      else{
+      else {
           return "userdashboard";
       }
   }
     
 
   return (
-    <div className="container">
-        <Suspense fallback={loading}>
+    <div>
+        <Suspense fallback={"Lazy loading"}>
             <Routes>
                 {routes.map((route, id) => {
                   return (
                     route.element && (
                       <Route
-                        key=     {id}
-                        path=    {route.path}
-                        exact=   {route.exact}
-                        name=    {route.name}
+                        key    = {id}
+                        path   = {route.path}
+                        exact  = {route.exact}
+                        name   = {route.name}
                         element= {<route.element/>}
                       />
                     )
