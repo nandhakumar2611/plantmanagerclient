@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import Select from 'react-select';
+import { useNavigate  } from 'react-router-dom';
 import dataService from "../../Service/dataService";
 
 const Product = () => {
@@ -8,6 +9,8 @@ const Product = () => {
     let [productdesc,setProductDesc] = useState('')
     let [operation,setOperation] = useState([])
     let [listoperation, setListOperation] = useState([])
+
+    const navigate = useNavigate();
   
     const submitform =(evevt) => {
       evevt.preventDefault()
@@ -22,6 +25,7 @@ const Product = () => {
       dataService.postexe("auth/product",postData)
         .then(response => {
           console.log('USER ADDED SUCCESSFULLY',response.data);
+          navigate('/productview')
         })
         .catch(error => {
           console.log('SOMETHING WRONG', error);

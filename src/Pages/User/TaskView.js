@@ -155,13 +155,13 @@ const TaskView = () => {
             }
             console.log('PRINTING POSTDATA - ADD USER', postData);
             setEditModel(false)
-            // dataService.putexe(`auth/tasklist/user/${taskListId}`, postData)
-            //     .then(response => {
-            //         console.log('USER ADDED SUCCESSFULLY', response.data);
-            //     })
-            //     .catch(error => {
-            //         console.log('SOMETHING WRONG', error);
-            //     })
+            dataService.putexe(`auth/tasklist/user/${taskListId}`, postData)
+                .then(response => {
+                    console.log('USER ADDED SUCCESSFULLY', response.data);
+                })
+                .catch(error => {
+                    console.log('SOMETHING WRONG', error);
+                })
         }
         return (<div className="modal show fade" style={{ display: 'block' }}>
             <div className="modal-dialog modal-lg">
@@ -336,7 +336,8 @@ const TaskView = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {batchorder.map((item, index) => {
+                                        {batchorder && batchorder.length > 0 ? (
+                                        batchorder.map((item, index) => {
                                             return (
                                                 <tr key={index}>
                                                     <td className="text-xs">{item.id}</td>
@@ -353,7 +354,14 @@ const TaskView = () => {
                                                     </td>
                                                 </tr>
                                             );
-                                        })}
+                                        })):(
+                                            <tr>
+                                            <td colSpan="9" className="text-center">
+                                                {/* {plant ? 'No plants found': null} */}
+                                                No Data
+                                            </td>
+                                        </tr>
+                                        )}
                                     </tbody>
                                 </table>
                             </div>

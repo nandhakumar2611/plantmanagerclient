@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import Select from 'react-select';  
+import { useNavigate  } from 'react-router-dom';
 import dataService from "../../Service/dataService";
 
 const Operation = () => {
 
     let [operationName,setOperationName] = useState('')
     let [operationDesc,setOperationDesc] = useState('')
+
+    const navigate = useNavigate();
   
     const submitform =(evevt) => {
       evevt.preventDefault()
@@ -18,6 +21,7 @@ const Operation = () => {
       dataService.postexe("auth/operation",postData)
         .then(response => {
           console.log('OPERATION ADDED SUCCESSFULLY',response.data);
+          navigate('/operationview')
         })
         .catch(error => {
           console.log('SOMETHING WRONG', error);

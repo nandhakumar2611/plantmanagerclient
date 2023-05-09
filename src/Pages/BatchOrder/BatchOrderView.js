@@ -85,7 +85,8 @@ const BatchOrderView = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {batchorder.map((item, index) => {
+                                {batchorder && batchorder.length > 0 ? (
+                                batchorder.map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td className="text-xs">{item.id}</td>
@@ -115,7 +116,14 @@ const BatchOrderView = () => {
                                             </td>
                                         </tr>
                                     );
-                                })}
+                                })):(
+                                    <tr>
+                                    <td colSpan="9" className="text-center">
+                                        {/* {plant ? 'No plants found': null} */}
+                                        No Data
+                                    </td>
+                                </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>

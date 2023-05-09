@@ -69,7 +69,8 @@ const ProductView = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {product.map((item, index) => {
+                                {product && product.length > 0 ? (
+                                product.map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td className="text-xs">{item.id}</td>
@@ -89,7 +90,14 @@ const ProductView = () => {
                                             </td>
                                         </tr>
                                     );
-                                })}
+                                })):(
+                                    <tr>
+                                                <td colSpan="5" className="text-center">
+                                                    {/* {plant ? 'No plants found': null} */}
+                                                    No Data
+                                                </td>
+                                            </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>

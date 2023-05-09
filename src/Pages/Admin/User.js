@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate  } from 'react-router-dom';
 import Select from 'react-select';
 import image1 from '../../Assets/image/girl1.png'
 import dataService from "../../Service/dataService";
@@ -10,6 +11,8 @@ const User = () => {
   let [email,setEmail] = useState('')
   let [contact,setContact] = useState('')
   let [role,setRole] = useState([])
+
+  const navigate = useNavigate();
 
   const submitform =(evevt) => {
     evevt.preventDefault()
@@ -25,6 +28,7 @@ const User = () => {
     dataService.postexe("auth/signup",postData)
       .then(response => {
         console.log('USER ADDED SUCCESSFULLY',response.data);
+        navigate('/userview')
       })
       .catch(error => {
         console.log('SOMETHING WRONG', error);

@@ -1,6 +1,7 @@
 import React, { useEffect , useState } from 'react'
 import Select from 'react-select';
 import dataService from "../../Service/dataService";
+import { useNavigate  } from 'react-router-dom';
 
 const BatchOrder = () => {
 
@@ -20,6 +21,8 @@ const BatchOrder = () => {
     let [rejectedQty,setRejectedQty] = useState('')
     let [priority,setPriority] = useState('')
     let [listProduct, setListProduct] = useState([])
+
+    const navigate = useNavigate();
     
   
     const submitform =(evevt) => {
@@ -46,6 +49,7 @@ const BatchOrder = () => {
       dataService.postexe("auth/batchorder",postData)
         .then(response => {
           console.log('USER ADDED SUCCESSFULLY',response.data);
+          navigate('/batchorderview')
         })
         .catch(error => {
           console.log('SOMETHING WRONG', error);

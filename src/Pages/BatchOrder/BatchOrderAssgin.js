@@ -572,7 +572,8 @@ const BatchOrderAssgin = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {taskList.map((item, index) => {
+                                    {taskList && taskList.length > 0 ? (
+                                    taskList.map((item, index) => {
                                         return (
                                             <tr key={index}>
                                                 <td className="text-xs">{index + 1}</td>
@@ -598,7 +599,14 @@ const BatchOrderAssgin = () => {
                                                 </td>
                                             </tr>
                                         );
-                                    })}
+                                    })):(
+                                        <tr>
+                                        <td colSpan="13" className="text-center">
+                                            {/* {plant ? 'No plants found': null} */}
+                                            No Data
+                                        </td>
+                                    </tr>
+                                    )}
 
                                 </tbody>
                             </table>

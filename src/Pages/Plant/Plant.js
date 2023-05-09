@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import Select from 'react-select';
+import { useNavigate  } from 'react-router-dom';
 import dataService from "../../Service/dataService";
 
 const Plant = () => {
@@ -8,6 +9,8 @@ const Plant = () => {
   let [location,setLocation] = useState('')
   let [machine,setMachine] = useState([])
   let [listMachine, setListMachine] = useState([])
+
+  const navigate = useNavigate();
 
   const submitform =(evevt) => {
     evevt.preventDefault()
@@ -21,6 +24,7 @@ const Plant = () => {
     dataService.postexe("auth/plant",postData)
       .then(response => {
         console.log('USER ADDED SUCCESSFULLY',response.data);
+        navigate('/plantview')
       })
       .catch(error => {
         console.log('SOMETHING WRONG', error);

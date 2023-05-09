@@ -70,7 +70,8 @@ const OperationView = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {operation.map((item, index) => {
+                                            {operation && operation.length > 0 ? (
+                                            operation.map((item, index) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td className="text-xs">{item.id}</td>
@@ -90,7 +91,14 @@ const OperationView = () => {
                                                         </td>
                                                     </tr>
                                                 );
-                                            })}
+                                            })):(
+                                                <tr>
+                                                <td colSpan="5" className="text-center">
+                                                    {/* {plant ? 'No plants found': null} */}
+                                                    No Data
+                                                </td>
+                                            </tr>
+                                            )}
                                         </tbody>
                                     </table>
                                 </div>

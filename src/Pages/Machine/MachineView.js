@@ -70,7 +70,8 @@ const MachineView = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {machine.map((item, index) => {
+                                            {machine && machine.length > 0 ? (
+                                            machine.map((item, index) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td className="text-xs">{item.id}</td>
@@ -90,7 +91,14 @@ const MachineView = () => {
                                                         </td>
                                                     </tr>
                                                 );
-                                            })}
+                                            })):(
+                                                <tr>
+                                                <td colSpan="5" className="text-center">
+                                                    {/* {plant ? 'No plants found': null} */}
+                                                    No Data
+                                                </td>
+                                            </tr>
+                                            )}
                                         </tbody>
                                     </table>
                                 </div>
