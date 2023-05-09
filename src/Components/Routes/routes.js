@@ -29,6 +29,7 @@ const BatchOrderView   =  React.lazy(() => import('../../Pages/BatchOrder/BatchO
 const EditBatchOrder   =  React.lazy(() => import('../../Pages/BatchOrder/EditBatchOrder'))
 const BatchOrderAssgin =  React.lazy(() => import('../../Pages/BatchOrder/BatchOrderAssgin'))
 const TaskView         =  React.lazy(() => import('../../Pages/User/TaskView'))
+const TaskTime         =  React.lazy(() => import('../../Pages/TaskTime/TaskTime'))
 
 const routes = [
     
@@ -61,7 +62,8 @@ const routes = [
     { path: '/EditBatchOrder/:id'             , name: 'EditBatchOrder'  , element: EditBatchOrder   },
     { path: '/BatchOrderView'                 , name: 'BatchOrderView'  , element: BatchOrderView   },
     { path: '/BatchOrderAssgin/:id/tasklist'  , name: 'BatchOrderAssgin', element: BatchOrderAssgin },
-    { path: '/taskview'                       , name: 'TaskView'        , element: TaskView },
+    { path: '/taskview'                       , name: 'TaskView'        , element: TaskView         },
+    { path: '/tasktime'                       , name: 'TaskTime'        , element: TaskTime         },
 ]
 
 export default routes

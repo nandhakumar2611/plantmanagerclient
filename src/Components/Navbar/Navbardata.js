@@ -35,6 +35,10 @@ const menuadmin = [
         title: 'BatchOrder',
         url : '/BatchOrderview',
     },
+    {
+        title: 'Time',
+        url : '/tasktime',
+    },
 ]
 
 
