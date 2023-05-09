@@ -15,25 +15,25 @@ const menuadmin = [
             },
             {
                 title: 'Machine',
-                url: '/machine',
-            },
-            {
-                title: 'MachineView',
                 url: '/machineview',
             },
             {
-                title: 'Operation',
-                url: '/dashboard',
+                title: 'Product',
+                url: '/productview',
             },
             {
-                title: 'Raw Material',
-                url: '/dashboard',
+                title: 'Plant',
+                url: '/plantview',
+            },
+            {
+                title: 'Operation',
+                url: '/operationview',
             },
         ],
     },
     {
-        title: 'About',
-        url : '/page5',
+        title: 'BatchOrder',
+        url : '/BatchOrderview',
     },
 ]
 
@@ -62,8 +62,8 @@ const menumanager = [
         ],
     },
     {
-        title: 'About',
-        url : '/page5',
+        title: 'BatchOrder',
+        url : '/BatchOrderview',
     },
 ]
 
@@ -91,8 +91,8 @@ const menuuser = [
         ],
     },
     {
-        title: 'About',
-        url : '/page5',
+        title: 'Task',
+        url : '/taskview',
     },
 ]
 

@@ -6,7 +6,7 @@ import Select from 'react-select';
 
 const EditMachine = () => {
 
-    let [user, setUser] = useState([]) 
+    let [user, setUser] = useState([])
     let [machineName, setMachineName] = useState('')
     let [machineDesc, setMachineDesc] = useState('')
     let [operation, setOperation] = useState([])
@@ -17,7 +17,7 @@ const EditMachine = () => {
 
     const handleSelect = (selectedOptions) => {
         console.log('Operation', selectedOptions);
-        const operations = selectedOptions.map((option) => ({id : option.value}));
+        const operations = selectedOptions.map((option) => ({ id: option.value }));
         setOperation(operations);
         setSelectedRoles(selectedOptions)
     }
@@ -27,46 +27,41 @@ const EditMachine = () => {
         const arr = [];
         const url = `/auth/operation`;    // uRL to get all operation
         dataService.getexe(url)
-        .then(response => {
-            console.log("Operation DATA",response.data);
-            let result = response.data;
-            result.map((opt)=>{
-                return arr.push({value: opt.id, label: opt.operationName})
+            .then(response => {
+                console.log("Operation DATA", response.data);
+                let result = response.data;
+                result.map((opt) => {
+                    return arr.push({ value: opt.id, label: opt.operationName })
+                })
+                setListOperation(arr)
             })
-            setListOperation(arr)
-        })
-        .catch(error => {
-            console.log("ROLE DATA ERROR",error);
-        })
+            .catch(error => {
+                console.log("ROLE DATA ERROR", error);
+            })
     }
 
-    const {id} = useParams();
+    const { id } = useParams();
     const url = `/auth/machine/${id}`
 
     const initMachine = () => {
 
         dataService.getexe(url)
             .then(response => {
-                console.log("USER DATA BY ID",response.data);
-                // setUser(response.data.roles)
-                // setUserName(response.data.username)
-                // setEmail(response.data.email)
-                // setContact(response.data.contactNo)
+                console.log("USER DATA BY ID", response.data);
                 setUser(response.data.operations)
                 setMachineName(response.data.machineName)
                 setMachineDesc(response.data.machineDesc)
-                // setUserName(response.data.roles)
             })
             .catch(error => {
                 console.log("USER ERROR ", error);
             })
-      }
+    }
 
-      const remove = (item) => {
+    const remove = (item) => {
 
         console.log(item.id);
         console.log(id);
-        
+
         dataService.deleteexe(`/auth/machine/${id}/operation/${item.id}`)
             .then(response => {
                 console.log("DELETE ID", response.id);
@@ -77,33 +72,29 @@ const EditMachine = () => {
             })
     }
 
-    const submitform =(evevt) => {
+    const submitform = (evevt) => {
         evevt.preventDefault()
         const postData =
         {
-        //   username:userName,
-        //   email:email,
-        //   contactNo:contact,
-        //   roles:role
-        machineName:machineName,
-        machineDesc:machineDesc,
-        operations:operation
+            machineName: machineName,
+            machineDesc: machineDesc,
+            operations: operation
         }
-        console.log('PRINTING POSTDATA - ADD USER',postData);
-        dataService.putexe(`auth/machine/${id}`,postData)
-          .then(response => {
-            console.log('USER ADDED SUCCESSFULLY',response.data);
-            navigate('/machineview')
-          })
-          .catch(error => {
-            console.log('SOMETHING WRONG', error);
-          })
-      }
+        console.log('PRINTING POSTDATA - ADD USER', postData);
+        dataService.putexe(`auth/machine/${id}`, postData)
+            .then(response => {
+                console.log('USER ADDED SUCCESSFULLY', response.data);
+                navigate('/machineview')
+            })
+            .catch(error => {
+                console.log('SOMETHING WRONG', error);
+            })
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         initMachine();
         initRole();
-      }, []);
+    }, []);
 
     return (
         <div>

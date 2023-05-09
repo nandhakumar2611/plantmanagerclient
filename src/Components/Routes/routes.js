@@ -24,35 +24,44 @@ const EditPlant        =  React.lazy(() => import('../../Pages/Plant/EditPlant')
 const Product          =  React.lazy(() => import('../../Pages/Product/Product'))
 const ProductView      =  React.lazy(() => import('../../Pages/Product/ProductView'))
 const EditProduct      =  React.lazy(() => import('../../Pages/Product/EditProduct'))
+const BatchOrder       =  React.lazy(() => import('../../Pages/BatchOrder/BatchOrder'))
+const BatchOrderView   =  React.lazy(() => import('../../Pages/BatchOrder/BatchOrderView'))
+const EditBatchOrder   =  React.lazy(() => import('../../Pages/BatchOrder/EditBatchOrder'))
+const BatchOrderAssgin =  React.lazy(() => import('../../Pages/BatchOrder/BatchOrderAssgin'))
+const TaskView         =  React.lazy(() => import('../../Pages/User/TaskView'))
 
 const routes = [
     
-    { path: '/'                  , name: 'Home'            , exact: true               },
-    { path: '/admindashboard'    , name: 'Dashboard'       , element: AdminDashboard   },
-    { path: '/user'              , name: 'AdminUser'       , element: AdminUser        },
-    { path: '/userdashboard'     , name: 'DashboardUser'   , element: UserDashboard    },
-    { path: '/userU'             , name: 'UserUser'        , element: User             },
-    { path: '/managerdashboard'  , name: 'DashboardManager', element: ManagerDashboard },
-    { path: '/userM'             , name: 'ManagerUser'     , element: ManagerUser      },
-    { path: '/profile'           , name: 'Profile'         , element: Profile          },
-    { path: '/userview'          , name: 'Userview'        , element: UserView         },
-    { path: '/edituser/:id'      , name: 'EditUser'        , element: EditUser         },
-    { path: '/UseUpdate'         , name: 'UseUpdate'       , element: UseUpdate        },
-    { path: '/Update'            , name: 'Update'          , element: Update           },
-    { path: '/Sample'            , name: 'Sample'          , element: Sample           },
-    { path: '/PlantView'         , name: 'PlantView'       , element: PlantView        },
-    { path: '/MachineView'       , name: 'MachineView'     , element: MachineView      },
-    { path: '/OperationView'     , name: 'OperationView'   , element: OperationView    },
-    { path: '/Operation'         , name: 'Operation'       , element: Operation        },
-    { path: '/Machine'           , name: 'Machine'         , element: Machine          },
-    { path: '/Plant'             , name: 'Plant'           , element: Plant            },
-    { path: '/EditOperation/:id' , name: 'EditOperation'   , element: EditOperation    },
-    { path: '/EditMachine/:id'   , name: 'Editmachine'     , element: EditMachine      },
-    { path: '/EditPlant/:id'     , name: 'EditPlant'       , element: EditPlant        },
-    { path: '/Product'           , name: 'Product'         , element: Product          },
-    { path: '/ProductView'       , name: 'ProductView'     , element: ProductView      },
-    { path: '/EditProduct/:id'   , name: 'EditProduct'     , element: EditProduct      },
-    
+    { path: '/'                               , name: 'Home'            , exact: true               },
+    { path: '/admindashboard'                 , name: 'Dashboard'       , element: AdminDashboard   },
+    { path: '/user'                           , name: 'AdminUser'       , element: AdminUser        },
+    { path: '/userdashboard'                  , name: 'DashboardUser'   , element: UserDashboard    },
+    { path: '/userU'                          , name: 'UserUser'        , element: User             },
+    { path: '/managerdashboard'               , name: 'DashboardManager', element: ManagerDashboard },
+    { path: '/userM'                          , name: 'ManagerUser'     , element: ManagerUser      },
+    { path: '/profile'                        , name: 'Profile'         , element: Profile          },
+    { path: '/userview'                       , name: 'Userview'        , element: UserView         },
+    { path: '/edituser/:id'                   , name: 'EditUser'        , element: EditUser         },
+    { path: '/UseUpdate'                      , name: 'UseUpdate'       , element: UseUpdate        },
+    { path: '/Update'                         , name: 'Update'          , element: Update           },
+    { path: '/Sample'                         , name: 'Sample'          , element: Sample           },
+    { path: '/PlantView'                      , name: 'PlantView'       , element: PlantView        },
+    { path: '/MachineView'                    , name: 'MachineView'     , element: MachineView      },
+    { path: '/OperationView'                  , name: 'OperationView'   , element: OperationView    },
+    { path: '/Operation'                      , name: 'Operation'       , element: Operation        },
+    { path: '/Machine'                        , name: 'Machine'         , element: Machine          },
+    { path: '/Plant'                          , name: 'Plant'           , element: Plant            },
+    { path: '/EditOperation/:id'              , name: 'EditOperation'   , element: EditOperation    },
+    { path: '/EditMachine/:id'                , name: 'Editmachine'     , element: EditMachine      },
+    { path: '/EditPlant/:id'                  , name: 'EditPlant'       , element: EditPlant        },
+    { path: '/Product'                        , name: 'Product'         , element: Product          },
+    { path: '/ProductView'                    , name: 'ProductView'     , element: ProductView      },
+    { path: '/EditProduct/:id'                , name: 'EditProduct'     , element: EditProduct      },
+    { path: '/BatchOrder'                     , name: 'BatchOrder'      , element: BatchOrder       },
+    { path: '/EditBatchOrder/:id'             , name: 'EditBatchOrder'  , element: EditBatchOrder   },
+    { path: '/BatchOrderView'                 , name: 'BatchOrderView'  , element: BatchOrderView   },
+    { path: '/BatchOrderAssgin/:id/tasklist'  , name: 'BatchOrderAssgin', element: BatchOrderAssgin },
+    { path: '/taskview'                       , name: 'TaskView'        , element: TaskView },
 ]
 
 export default routes
