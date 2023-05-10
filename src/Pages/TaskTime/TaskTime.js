@@ -8,7 +8,9 @@ const TaskTime = () => {
 
     const formatData= (data) => {
 
-        const formattedData = moment(data).format("YYYY-MM-DD HH:mm:ss")
+        console.warn(data)
+        const formattedData = moment(data,'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]').format('YYYY-MM-DD HH:mm:ss')
+        console.log(formattedData)
         return formattedData;
       } 
 
