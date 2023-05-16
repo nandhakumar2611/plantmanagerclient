@@ -32,23 +32,23 @@ const Operation = () => {
         <div className="container">
             <div className="row">
                 <div className="col-xl-8">
-                    {/*  Account details card */}
+                    {/*  Operation card */}
                     <div className="card mb-4">
                         <div className="card-header">Operation Details</div>
                         <div className="card-body">
                             <form onSubmit={submitform}>
-                                {/*  Form Group (username) */}
+                                {/*  Form Group (operation Name) */}
                                 <div className="mb-3">
                                     <label className="small mb-1" htmlFor="inputOperationname">Operation Name</label>
                                     <input
                                         className="form-control"
                                         id="inputOperationname"
                                         type="text"
-                                        placeholder="Enter  operation Name"
+                                        placeholder="Enter Operation Name"
                                         onChange={evevt => setOperationName(evevt.target.value)} >
                                     </input>
                                 </div>
-                                {/*  Form Group (email address)--> */}
+                                {/*  Form Group (operation Description )--> */}
                                 <div className="mb-3">
                                     <label className="small mb-1" htmlFor="inputoperationDesc">Operation Description</label>
                                     <input
@@ -60,7 +60,7 @@ const Operation = () => {
                                     </input>
                                 </div>
                                 {/*  Save changes button--> */}
-                                <button className="btn btn-primary" type="submit">Save changes</button>
+                                <button className="btn btn-primary" type="submit">Save</button>
                             </form>
                         </div>
                     </div>

@@ -211,7 +211,7 @@ const BatchOrderAssgin = () => {
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Modal title</h5>
+                        <h5 className="modal-title">Assign Task</h5>
                         <button type="button" className="btn-close" onClick={() => SetItem() > setAddModel(false)}>
 
                         </button>
@@ -509,8 +509,8 @@ const BatchOrderAssgin = () => {
                     <div className="card-header d-flex flex-row align-items-center justify-content-between py-3 bg-light">
                         <h6 className="m-0 font-weight-bold text-primary">Assgin Batch Order</h6>
                         <div>
-                            <a onClick={() => setAddModel(true)} className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                <i className="fa fa-plus fa-sm text-white-50"></i> Assgin</a>
+                            <a onClick={() => setAddModel(true)} className="btn btn-sm btn-primary shadow-sm">
+                                <i className="fa fa-plus fa-sm text-white-50"></i> Assign</a>
                         </div>
                     </div>
                     <div className="card-body">

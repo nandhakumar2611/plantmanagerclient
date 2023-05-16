@@ -53,8 +53,8 @@ const PlantView = () => {
 
                     <div className="card shadow mb-4">
                         <div className="card-header d-flex flex-row align-items-center justify-content-between py-3 bg-light">
-                            <h6 className="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                            <a href="/plant" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <h6 className="m-0 font-weight-bold text-primary">Plant Table</h6>
+                            <a href="/plant" className="btn btn-sm btn-primary shadow-sm">
                                 <i className="fa fa-plus fa-sm text-white-50"></i> Add plant</a>
                         </div>
                         <div className="card-body">

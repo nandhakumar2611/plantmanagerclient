@@ -63,36 +63,36 @@ const Machine = () => {
         <div className="container">
             <div className="row">
                 <div className="col-xl-8">
-                    {/*  Account details card */}
+                    {/*  Machine card */}
                     <div className="card mb-4">
                         <div className="card-header">Machine Details</div>
                         <div className="card-body">
                             <form onSubmit={submitform}>
-                                {/*  Form Group (username) */}
+                                {/*  Form Group (Machine Name) */}
                                 <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputUsername">Machine name</label>
+                                    <label className="small mb-1" htmlFor="inputMachineName">Machine name</label>
                                     <input
                                         className="form-control"
-                                        id="inputUsername"
+                                        id="inputMachineName"
                                         type="text"
-                                        placeholder="Enter your username"
+                                        placeholder="Enter Machine Name"
                                         onChange={evevt => setMachineName(evevt.target.value)} >
                                     </input>
                                 </div>
-                                {/*  Form Group (email address)--> */}
+                                {/*  Form Group (Machine Description)--> */}
                                 <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputEmailAddress">Machine Description</label>
+                                    <label className="small mb-1" htmlFor="inputMachineDesc">Machine Description</label>
                                     <input
                                         className="form-control"
-                                        id="inputEmailAddress"
+                                        id="inputMachineDesc"
                                         type="text"
-                                        placeholder="Enter your email address"
+                                        placeholder="Enter Machine Description"
                                         onChange={evevt => setMachineDesc(evevt.target.value)} >
                                     </input>
                                 </div>
                                 {/*  Form Row--> */}
                                 <div className="row gx-3 mb-3">
-                                    {/*  Form Group (Role)--> */}
+                                    {/*  Form Group (Operation)--> */}
                                     <div className="col-md-6">
                                         <label className="small mb-1" htmlFor="inputRole">Operation</label>
                                         <Select
@@ -106,7 +106,7 @@ const Machine = () => {
                                     </div>
                                 </div>
                                 {/*  Save changes button--> */}
-                                <button className="btn btn-primary" type="submit">Save changes</button>
+                                <button className="btn btn-primary" type="submit">Save</button>
                             </form>
                         </div>
                     </div>

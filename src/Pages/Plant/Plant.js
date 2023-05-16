@@ -62,36 +62,36 @@ useEffect(() => {
     <div className="container">
       <div className="row">
         <div className="col-xl-8">
-          {/*  Account details card */}
+          {/*  Plant card */}
           <div className="card mb-4">
             <div className="card-header">Plant Details</div>
             <div className="card-body">
               <form onSubmit={submitform}>
-                {/*  Form Group (username) */}
+                {/*  Form Group (Plant Name) */}
                 <div className="mb-3">
-                  <label className="small mb-1" htmlFor="inputUsername">Plant Name </label>
+                  <label className="small mb-1" htmlFor="inputPlantName">Plant Name </label>
                   <input
                     className="form-control"
-                    id="inputUsername"
+                    id="inputPlantName"
                     type="text"
-                    placeholder="Enter your username"
+                    placeholder="Enter Plant Name"
                     onChange={evevt => setPlantName(evevt.target.value)} >
                   </input>
                 </div>
-                {/*  Form Group (email address)--> */}
+                {/*  Form Group (Location)--> */}
                 <div className="mb-3">
-                  <label className="small mb-1" htmlFor="inputEmailAddress">Location </label>
+                  <label className="small mb-1" htmlFor="inputLocation">Location </label>
                   <input
                     className="form-control"
-                    id="inputEmailAddress"
+                    id="inputLocation"
                     type="text"
-                    placeholder="Enter your email address"
+                    placeholder="Enter Location"
                     onChange={evevt => setLocation(evevt.target.value)} >
                   </input>
                 </div>
                 {/*  Form Row--> */}
                 <div className="row gx-3 mb-3">
-                  {/*  Form Group (Role)--> */}
+                  {/*  Form Group (Machine)--> */}
                   <div className="col-md-6">
                     <label className="small mb-1" htmlFor="inputRole">Machine</label>
                     <Select
@@ -105,7 +105,7 @@ useEffect(() => {
                   </div>
                 </div>
                 {/*  Save changes button--> */}
-                <button className="btn btn-primary" type="submit">Save changes</button>
+                <button className="btn btn-primary" type="submit">Save</button>
               </form>
             </div>
           </div>
