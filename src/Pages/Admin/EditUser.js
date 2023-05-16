@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import dataService from "../../Service/dataService";
 import Select from 'react-select';
 
 const EditUser = () => {
 
-    let [user, setUser] = useState([]) 
+    let [user, setUser] = useState([])
     let [userName, setUserName] = useState('')
     let [email, setEmail] = useState('')
     let [contact, setContact] = useState('')
@@ -19,7 +19,7 @@ const EditUser = () => {
 
     const handleSelect = (selectedOptions) => {
         console.log('ROLE', selectedOptions);
-        const roles = selectedOptions.map((option) => ({role : option.label}));
+        const roles = selectedOptions.map((option) => ({ role: option.label }));
         setRole(roles);
         setSelectedRoles(selectedOptions)
     }
@@ -29,27 +29,27 @@ const EditUser = () => {
         const arr = [];
         const url = `/auth/role`;    // uRL to get all operation
         dataService.getexe(url)
-        .then(response => {
-            console.log("ROLE DATA",response.data);
-            let result = response.data;
-            result.map((opt)=>{
-                return arr.push({value: opt.id, label: opt.role})
+            .then(response => {
+                console.log("ROLE DATA", response.data);
+                let result = response.data;
+                result.map((opt) => {
+                    return arr.push({ value: opt.id, label: opt.role })
+                })
+                setListRole(arr)
             })
-            setListRole(arr)
-        })
-        .catch(error => {
-            console.log("ROLE DATA ERROR",error);
-        })
+            .catch(error => {
+                console.log("ROLE DATA ERROR", error);
+            })
     }
 
-    const {id} = useParams();
+    const { id } = useParams();
     const url = `/auth/user/${id}`
 
     const initMachine = () => {
 
         dataService.getexe(url)
             .then(response => {
-                console.log("USER DATA BY ID",response.data);
+                console.log("USER DATA BY ID", response.data);
                 setUser(response.data.roles)
                 setUserName(response.data.username)
                 setEmail(response.data.email)
@@ -59,10 +59,10 @@ const EditUser = () => {
             .catch(error => {
                 console.log("USER ERROR ", error);
             })
-      }
+    }
 
-      const remove = (item) => {
-        
+    const remove = (item) => {
+
         dataService.deleteexe(`/auth/user/${id}/role/${item.id}`)
             .then(response => {
                 console.log("DELETE ID", response.id);
@@ -73,30 +73,30 @@ const EditUser = () => {
             })
     }
 
-    const submitform =(evevt) => {
+    const submitform = (evevt) => {
         evevt.preventDefault()
         const postData =
         {
-          username:userName,
-          email:email,
-          contactNo:contact,
-          roles:role
+            username: userName,
+            email: email,
+            contactNo: contact,
+            roles: role
         }
-        console.log('PRINTING POSTDATA - ADD USER',postData);
-        dataService.putexe(`auth/usersrole/${id}`,postData)
-          .then(response => {
-            console.log('USER ADDED SUCCESSFULLY',response.data);
-            navigate('/userview')
-          })
-          .catch(error => {
-            console.log('SOMETHING WRONG', error);
-          })
-      }
+        console.log('PRINTING POSTDATA - ADD USER', postData);
+        dataService.putexe(`auth/usersrole/${id}`, postData)
+            .then(response => {
+                console.log('USER ADDED SUCCESSFULLY', response.data);
+                navigate('/userview')
+            })
+            .catch(error => {
+                console.log('SOMETHING WRONG', error);
+            })
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         initMachine();
         initRole();
-      }, []);
+    }, []);
 
     return (
         <div>
@@ -147,18 +147,19 @@ const EditUser = () => {
                                             </input>
                                         </div>
                                     </div>
+
+                                    <div className="mb-3">
+                                        <label className="small mb-1" htmlFor="inputRole">Add Role</label>
+                                        <Select
+                                            options={listrole}
+                                            isMulti
+                                            // value={listrole.filter(obj => role.includes(obj.value))}
+                                            value={selectedRoles}
+                                            onChange={handleSelect} />
+                                    </div>
                                     {/* <!-- Save changes button--> */}
                                     <button className="btn btn-primary" type="submit">Save changes</button>
                                 </form>
-                                <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputRole">Add Role</label>
-                                    <Select
-                                        options={listrole}
-                                        isMulti 
-                                        // value={listrole.filter(obj => role.includes(obj.value))}
-                                        value={selectedRoles}
-                                        onChange={handleSelect}/>
-                                </div>
                                 <div className="mb-3">
                                     <label className="small mb-1" htmlFor="inputRole">Role</label>
                                     <div className="container-fluid table-responsive-sm">
@@ -167,7 +168,7 @@ const EditUser = () => {
                                                 <thead>
                                                     <tr>
                                                         <td className="text-uppercase">S.No</td>
-                                                        <td className="text-uppercase">Operation Name</td>
+                                                        <td className="text-uppercase">Role</td>
                                                         <td className="text-uppercase">Delete</td>
                                                     </tr>
                                                 </thead>
@@ -175,7 +176,7 @@ const EditUser = () => {
                                                     {user.map((item, index) => {
                                                         return (
                                                             <tr key={index}>
-                                                                <td className="text-xs">{item.id}</td>
+                                                                <td className="text-xs">{index+1}</td>
                                                                 <td className="text-xs">{item.role}</td>
                                                                 <td>
                                                                     <a className="btn btn-danger text-white btn-xs" onClick={() => remove(item)}>

@@ -108,10 +108,10 @@ const EditMachine = () => {
                                 <form onSubmit={submitform}>
                                     {/* <!-- Form Group (username)--> */}
                                     <div className="mb-3">
-                                        <label className="small mb-1" htmlFor="inputUsername">Machine Name</label>
+                                        <label className="small mb-1" htmlFor="inputMachineName">Machine Name</label>
                                         <input
                                             className="form-control"
-                                            id="inputUsername"
+                                            id="inputMachineName"
                                             type="text"
                                             placeholder="Enter your username"
                                             value={machineName}
@@ -120,28 +120,29 @@ const EditMachine = () => {
                                     </div>
                                     {/* <!-- Form Group (email address)--> */}
                                     <div className="mb-3">
-                                        <label className="small mb-1" htmlFor="inputEmailAddress">Machine Desc</label>
+                                        <label className="small mb-1" htmlFor="inputMachineDesc">Machine Description</label>
                                         <input
                                             className="form-control"
-                                            id="inputEmailAddress"
+                                            id="inputMachineDesc"
                                             type="text"
                                             placeholder="Enter your email address"
                                             value={machineDesc}
                                             onChange={evevt => setMachineDesc(evevt.target.value)}>
                                         </input>
                                     </div>
+
+                                    <div className="mb-3">
+                                        <label className="small mb-1" htmlFor="inputRole">Add Operation</label>
+                                        <Select
+                                            options={listoperation}
+                                            isMulti
+                                            // value={listrole.filter(obj => role.includes(obj.value))}
+                                            value={selectedRoles}
+                                            onChange={handleSelect} />
+                                    </div>
                                     {/* <!-- Save changes button--> */}
                                     <button className="btn btn-primary" type="submit">Save changes</button>
                                 </form>
-                                <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputRole">Add Operation</label>
-                                    <Select
-                                        options={listoperation}
-                                        isMulti
-                                        // value={listrole.filter(obj => role.includes(obj.value))}
-                                        value={selectedRoles}
-                                        onChange={handleSelect} />
-                                </div>
                                 <div className="mb-3">
                                     <label className="small mb-1" htmlFor="inputRole">Operations</label>
                                     <div className="container-fluid table-responsive-sm">
@@ -158,7 +159,7 @@ const EditMachine = () => {
                                                     {user.map((item, index) => {
                                                         return (
                                                             <tr key={index}>
-                                                                <td className="text-xs">{item.id}</td>
+                                                                <td className="text-xs">{index+1}</td>
                                                                 <td className="text-xs">{item.operationName}</td>
                                                                 <td>
                                                                     <a className="btn btn-danger text-white btn-xs" onClick={() => remove(item)}>

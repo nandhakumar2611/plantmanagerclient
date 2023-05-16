@@ -74,7 +74,7 @@ const MachineView = () => {
                                             machine.map((item, index) => {
                                                 return (
                                                     <tr key={index}>
-                                                        <td className="text-xs">{item.id}</td>
+                                                        <td className="text-xs">{index+1}</td>
                                                         <td className="text-xs">{item.machineName}</td>
                                                         <td className="text-xs">{item.machineDesc}</td>
                                                         <td>

@@ -123,7 +123,7 @@ const EditBatchOrder = () => {
     <div className="container">
     <div className="row">
       <div className="col-xl-8">
-        {/*  Account details card */}
+        {/*  Batch Order card */}
         <div className="card mb-4">
           <div className="card-header">Batch Order Details</div>
           <div className="card-body">
@@ -131,10 +131,10 @@ const EditBatchOrder = () => {
             <div className="row gx-3 mb-3">
                 {/*  Form Group (Company Name)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">Company Name</label>
+                  <label className="small mb-1" htmlFor="inputCompanyName">Company Name</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputCompanyName" 
                     type="text" 
                     placeholder="Comapany Name"
                     value={comapanyName}
@@ -143,10 +143,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Person)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Person</label>
+                  <label className="small mb-1" htmlFor="inputPerson">Person</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputPerson"
                     type="text"
                     placeholder="Person"
                     value={companyPerson}
@@ -172,10 +172,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Raw Material)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Raw Material</label>
+                  <label className="small mb-1" htmlFor="inputRawMaterial">Raw Material</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputRawMaterial"
                     type="text"
                     placeholder="Raw Material"
                     value={rawMaterial}
@@ -186,10 +186,10 @@ const EditBatchOrder = () => {
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Finsize No)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">FinSize</label>
+                  <label className="small mb-1" htmlFor="inputFinSize">FinSize</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputFinSize" 
                     type="text" 
                     placeholder="FInSize"
                     value={finsize}
@@ -198,10 +198,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Assembly)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Assembly</label>
+                  <label className="small mb-1" htmlFor="inputAssembly">Assembly</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputAssembly"
                     type="text"
                     placeholder="Assembly"
                     value={assembly}
@@ -212,10 +212,10 @@ const EditBatchOrder = () => {
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Puchase No)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">Puchase No</label>
+                  <label className="small mb-1" htmlFor="inputPurchaseNo">Purchase No</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputPurchaseNo" 
                     type="text" 
                     placeholder="Purchase No"
                     value={purchaseNo}
@@ -224,10 +224,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Puchase Date)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Puchase Date</label>
+                  <label className="small mb-1" htmlFor="inputPurchaseDate">Puchase Date</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputPurchaseDate"
                     type="Date"
                     placeholder="Purchase Date"
                     // value={purchaseDate}
@@ -240,10 +240,10 @@ const EditBatchOrder = () => {
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Puchase Qty)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">Purchase Qty</label>
+                  <label className="small mb-1" htmlFor="inputPurchaseQty">Purchase Qty</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputPurchaseQty" 
                     type="text" 
                     placeholder="Purchase Qty"
                     value={purchaseQty}
@@ -252,10 +252,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Production Qty)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Production Qty</label>
+                  <label className="small mb-1" htmlFor="inputProductionQty">Production Qty</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputProductionQty"
                     type="text"
                     placeholder="Production Qty"
                     value={productionQty}
@@ -266,10 +266,10 @@ const EditBatchOrder = () => {
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Start Date)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">Start Date</label>
+                  <label className="small mb-1" htmlFor="inputStartDate">Start Date</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputStartDate" 
                     type="Date" 
                     placeholder="Start Date"
                     value={formatData(startDate)}
@@ -278,10 +278,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Issue Date)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Issue Date</label>
+                  <label className="small mb-1" htmlFor="inputIssueDate">Issue Date</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputIssueDate"
                     type="Date"
                     placeholder="Issue Date"
                     value={formatData(issueDate)}
@@ -292,10 +292,10 @@ const EditBatchOrder = () => {
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Accurate Qty)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">Accurate Qty</label>
+                  <label className="small mb-1" htmlFor="inputAccurateQty">Accurate Qty</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputAccurateQty" 
                     type="text" 
                     placeholder="Accurate Qty"
                     value={accurateQty}
@@ -304,10 +304,10 @@ const EditBatchOrder = () => {
                 </div>
                 {/*  Form Group (Rejected Date)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPassword">Rejected Qty</label>
+                  <label className="small mb-1" htmlFor="inputRejectedQty">Rejected Qty</label>
                   <input 
                     className="form-control"
-                    id="inputLocation"
+                    id="inputRejectedQty"
                     type="text"
                     placeholder="Rejected Qty"
                     value={rejectedQty}
@@ -319,10 +319,10 @@ const EditBatchOrder = () => {
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Priority)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputContactNo">Priority</label>
+                  <label className="small mb-1" htmlFor="inputPriority">Priority</label>
                   <input 
                     className="form-control" 
-                    id="inputContactNo" 
+                    id="inputPriority" 
                     type="text" 
                     placeholder="Priority"
                     value={priority}

@@ -60,10 +60,10 @@ const EditOperation = () => {
                         <form onSubmit={submitform}>
                             {/* <!-- Form Group (username)--> */}
                             <div className="mb-3">
-                                <label className="small mb-1" htmlFor="inputUsername">Operation Name</label>
+                                <label className="small mb-1" htmlFor="inputOperationName">Operation Name</label>
                                 <input
                                     className="form-control"
-                                    id="inputUsername"
+                                    id="inputOperationName"
                                     type="text"
                                     placeholder="Enter your username"
                                     value={operationName}
@@ -72,10 +72,10 @@ const EditOperation = () => {
                             </div>
                             {/* <!-- Form Group (email address)--> */}
                             <div className="mb-3">
-                                <label className="small mb-1" htmlFor="inputEmailAddress">Operation Description</label>
+                                <label className="small mb-1" htmlFor="inputOperationDesc">Operation Description</label>
                                 <input
                                     className="form-control"
-                                    id="inputEmailAddress"
+                                    id="inputOperationDesc"
                                     type="text"
                                     placeholder="Enter your email address"
                                     value={operationDesc}

@@ -5,7 +5,7 @@ import dataService from "../../Service/dataService";
 import Select from 'react-select';
 
 const EditPlant = () => {
-    let [user, setUser] = useState([]) 
+    let [user, setUser] = useState([])
     let [plantName, setPlantName] = useState('')
     let [location, setLocation] = useState('')
     let [machine, setMachine] = useState([])
@@ -16,7 +16,7 @@ const EditPlant = () => {
 
     const handleSelect = (selectedOptions) => {
         console.log('Operation', selectedOptions);
-        const operations = selectedOptions.map((option) => ({id : option.value}));
+        const operations = selectedOptions.map((option) => ({ id: option.value }));
         setMachine(operations);
         setSelectedRoles(selectedOptions)
     }
@@ -26,27 +26,27 @@ const EditPlant = () => {
         const arr = [];
         const url = `/auth/machine`;    // uRL to get all operation
         dataService.getexe(url)
-        .then(response => {
-            console.log("Operation DATA",response.data);
-            let result = response.data;
-            result.map((opt)=>{
-                return arr.push({value: opt.id, label: opt.machineName})
+            .then(response => {
+                console.log("Operation DATA", response.data);
+                let result = response.data;
+                result.map((opt) => {
+                    return arr.push({ value: opt.id, label: opt.machineName })
+                })
+                setListmachine(arr)
             })
-            setListmachine(arr)
-        })
-        .catch(error => {
-            console.log("ROLE DATA ERROR",error);
-        })
+            .catch(error => {
+                console.log("ROLE DATA ERROR", error);
+            })
     }
 
-    const {id} = useParams();
+    const { id } = useParams();
     const url = `/auth/plant/${id}`
 
     const initMachine = () => {
 
         dataService.getexe(url)
             .then(response => {
-                console.log("USER DATA BY ID",response.data);
+                console.log("USER DATA BY ID", response.data);
                 // setUser(response.data.roles)
                 // setUserName(response.data.username)
                 // setEmail(response.data.email)
@@ -59,13 +59,13 @@ const EditPlant = () => {
             .catch(error => {
                 console.log("USER ERROR ", error);
             })
-      }
+    }
 
-      const remove = (item) => {
+    const remove = (item) => {
 
         console.log(item.id);
         console.log(id);
-        
+
         dataService.deleteexe(`/auth/plant/${id}/machine/${item.id}`)
             .then(response => {
                 console.log("DELETE ID", response.id);
@@ -76,85 +76,86 @@ const EditPlant = () => {
             })
     }
 
-    const submitform =(evevt) => {
+    const submitform = (evevt) => {
         evevt.preventDefault()
         const postData =
         {
-        plantName:plantName,
-        location:location,
-        machines:machine
+            plantName: plantName,
+            location: location,
+            machines: machine
         }
-        console.log('PRINTING POSTDATA - ADD USER',postData);
-        dataService.putexe(`auth/plant/${id}`,postData)
-          .then(response => {
-            console.log('USER ADDED SUCCESSFULLY',response.data);
-            navigate('/plantview')
-          })
-          .catch(error => {
-            console.log('SOMETHING WRONG', error);
-          })
-      }
+        console.log('PRINTING POSTDATA - ADD USER', postData);
+        dataService.putexe(`auth/plant/${id}`, postData)
+            .then(response => {
+                console.log('USER ADDED SUCCESSFULLY', response.data);
+                navigate('/plantview')
+            })
+            .catch(error => {
+                console.log('SOMETHING WRONG', error);
+            })
+    }
 
-      useEffect(() => {
+    useEffect(() => {
         initMachine();
         initRole();
-      }, []);
+    }, []);
 
     return (
         <div>
             <div className="container">
                 <div className="row">
                     <div className="col-xl-8">
-                        {/* <!--  card--> */}
+                        {/* <!--Plant card--> */}
                         <div className="card mb-4">
-                            <div className="card-header">Machine Details</div>
+                            <div className="card-header">Plant Details</div>
                             <div className="card-body">
                                 <form onSubmit={submitform}>
                                     {/* <!-- Form Group (username)--> */}
                                     <div className="mb-3">
-                                        <label className="small mb-1" htmlFor="inputUsername">Machine Name</label>
+                                        <label className="small mb-1" htmlFor="inputPlantName">Plant Name</label>
                                         <input
                                             className="form-control"
-                                            id="inputUsername"
+                                            id="inputPlantName"
                                             type="text"
-                                            placeholder="Enter your username"
+                                            placeholder="Enter Plant Name"
                                             value={plantName}
                                             onChange={evevt => setPlantName(evevt.target.value)}>
                                         </input>
                                     </div>
                                     {/* <!-- Form Group (email address)--> */}
                                     <div className="mb-3">
-                                        <label className="small mb-1" htmlFor="inputEmailAddress">Machine Desc</label>
+                                        <label className="small mb-1" htmlFor="inputLocation">Location</label>
                                         <input
                                             className="form-control"
-                                            id="inputEmailAddress"
+                                            id="inputLocation"
                                             type="text"
-                                            placeholder="Enter your email address"
+                                            placeholder="Enter Location"
                                             value={location}
                                             onChange={evevt => setLocation(evevt.target.value)}>
                                         </input>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="small mb-1" htmlFor="inputRole">Add Machine</label>
+                                        <Select
+                                            options={listMachine}
+                                            isMulti
+                                            // value={listrole.filter(obj => role.includes(obj.value))}
+                                            value={selectedRoles}
+                                            onChange={handleSelect} />
                                     </div>
                                     {/* <!-- Save changes button--> */}
                                     <button className="btn btn-primary" type="submit">Save changes</button>
                                 </form>
                                 <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputRole">Add Operation</label>
-                                    <Select
-                                        options={listMachine}
-                                        isMulti
-                                        // value={listrole.filter(obj => role.includes(obj.value))}
-                                        value={selectedRoles}
-                                        onChange={handleSelect} />
-                                </div>
-                                <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputRole">Operations</label>
+                                    <label className="small mb-1" htmlFor="inputRole">Machines</label>
                                     <div className="container-fluid table-responsive-sm">
                                         <div className="table p-0 pb-2">
                                             <table className="table table-bordered align-items-center justify-content-center mb-0 ">
                                                 <thead>
                                                     <tr>
                                                         <td className="text-uppercase">S.No</td>
-                                                        <td className="text-uppercase">Operation Name</td>
+                                                        <td className="text-uppercase">Machine Name</td>
                                                         <td className="text-uppercase">Delete</td>
                                                     </tr>
                                                 </thead>
@@ -162,7 +163,7 @@ const EditPlant = () => {
                                                     {user.map((item, index) => {
                                                         return (
                                                             <tr key={index}>
-                                                                <td className="text-xs">{item.id}</td>
+                                                                <td className="text-xs">{index+1}</td>
                                                                 <td className="text-xs">{item.machineName}</td>
                                                                 <td>
                                                                     <a className="btn btn-danger text-white btn-xs" onClick={() => remove(item)}>
@@ -183,7 +184,7 @@ const EditPlant = () => {
                 </div>
             </div>
         </div>
-        )
+    )
 }
 
 export default EditPlant

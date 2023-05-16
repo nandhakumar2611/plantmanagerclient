@@ -74,7 +74,7 @@ const PlantView = () => {
                                         plant.map((item, index) => {
                                             return (
                                                 <tr key={index}>
-                                                    <td className="text-xs">{item.id}</td>
+                                                    <td className="text-xs">{index+1}</td>
                                                     <td className="text-xs">{item.plantName}</td>
                                                     <td className="text-xs">{item.location}</td>
                                                     <td>

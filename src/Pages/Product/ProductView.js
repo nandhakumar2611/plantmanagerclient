@@ -73,7 +73,7 @@ const ProductView = () => {
                                 product.map((item, index) => {
                                     return (
                                         <tr key={index}>
-                                            <td className="text-xs">{item.id}</td>
+                                            <td className="text-xs">{index+1}</td>
                                             <td className="text-xs">{item.productName}</td>
                                             <td className="text-xs">{item.productdesc}</td>
                                             <td>

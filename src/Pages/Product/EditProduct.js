@@ -168,7 +168,7 @@ const EditProduct = () => {
                                                     {product.map((item, index) => {
                                                         return (
                                                             <tr key={index}>
-                                                                <td className="text-xs">{item.id}</td>
+                                                                <td className="text-xs">{index+1}</td>
                                                                 <td className="text-xs">{item.operationName}</td>
                                                                 <td>
                                                                     <a className="btn btn-danger text-white btn-xs" onClick={() => remove(item)}>
