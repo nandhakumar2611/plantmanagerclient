@@ -48,24 +48,6 @@ const menumanager = [
         url : '/managerdashboard',
     },
     {
-        title: 'Service manager',
-        url : '/',
-        submenu: [
-            {
-                title: 'Web design',
-                url: '/userM',
-            },
-            {
-                title: 'Web development',
-                url: '/table',
-            },
-            {
-                title: 'SEO',
-                url: '/dashboard',
-            },
-        ],
-    },
-    {
         title: 'BatchOrder',
         url : '/BatchOrderview',
     },
@@ -75,24 +57,6 @@ const menuuser = [
     {
         title: 'Home',
         url : '/userdashboard',
-    },
-    {
-        title: 'Service user',
-        url : '/',
-        submenu: [
-            {
-                title: 'Web design',
-                url: '/userU',
-            },
-            {
-                title: 'Web development',
-                url: '/table',
-            },
-            {
-                title: 'SEO',
-                url: '/dashboard',
-            },
-        ],
     },
     {
         title: 'Task',

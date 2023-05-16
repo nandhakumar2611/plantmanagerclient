@@ -191,28 +191,28 @@ const BatchOrderAssgin = () => {
                     console.log('SOMETHING WRONG', error);
                 })
         }
-        const options =[
-            {value: 'admin', label: 'ADMIN'},
-            {value: 'manager', label: 'MANAGER'},
-            {value: 'user', label: 'USER'}
-          ]
+        const options = [
+            { value: 'admin', label: 'ADMIN' },
+            { value: 'manager', label: 'MANAGER' },
+            { value: 'user', label: 'USER' }
+        ]
 
-          const handleSelect = (event) => {
-            console.log('ROLE',event);
+        const handleSelect = (event) => {
+            console.log('ROLE', event);
             setDescription(event.value);
-          }
+        }
 
-          const handleSelect1 = (event) => {
-            console.log('ROLE',event);
+        const handleSelect1 = (event) => {
+            console.log('ROLE', event);
             setPerson(event.value);
-          }
-          
+        }
+
         return (<div className="modal show fade" style={{ display: 'block' }}>
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Modal title</h5>
-                        <button type="button" className="btn-close" onClick={() => SetItem()>setAddModel(false)}>
+                        <button type="button" className="btn-close" onClick={() => SetItem() > setAddModel(false)}>
 
                         </button>
                     </div>
@@ -232,7 +232,7 @@ const BatchOrderAssgin = () => {
                                     <Select
                                         options={listOperation}
                                         onChange={handleSelect}
-                                        // isMulti
+                                    // isMulti
                                     />
                                 </div>
                                 {/* Form Group (Person)--> */}
@@ -318,7 +318,7 @@ const BatchOrderAssgin = () => {
                                     <Select
                                         options={listUser}
                                         onChange={handleSelect1}
-                                        // isMulti
+                                    // isMulti
                                     />
                                 </div>
                             </div>
@@ -573,39 +573,39 @@ const BatchOrderAssgin = () => {
                                 </thead>
                                 <tbody>
                                     {taskList && taskList.length > 0 ? (
-                                    taskList.map((item, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td className="text-xs">{index + 1}</td>
-                                                <td className="text-xs">{item.description}</td>
-                                                <td className="text-xs">{item.specification}</td>
-                                                <td className="text-xs">{item.standard}</td>
-                                                <td className="text-xs">{item.process}</td>
-                                                <td className="text-xs">{formatData(item.startDate)}</td>
-                                                <td className="text-xs">{formatData(item.endDate)}</td>
-                                                <td className="text-xs">{item.quantity}</td>
-                                                <td className="text-xs">{item.person}</td>
-                                                <td className="text-xs">{item.finishedQty}</td>
-                                                <td className="text-xs">{item.remark}</td>
-                                                <td>
-                                                    <button className="btn btn-primary text-white btn-xs" onClick={() => ItemSet(item) > setEditModel(true)}>
-                                                        <i className="fa fa-pencil"></i>
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button className="btn btn-danger text-white btn-xs" onClick={() => ItemSet(item) > setDeleteModel(true)}>
-                                                        <i className="fa fa-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        );
-                                    })):(
+                                        taskList.map((item, index) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <td className="text-xs">{index + 1}</td>
+                                                    <td className="text-xs">{item.description}</td>
+                                                    <td className="text-xs">{item.specification}</td>
+                                                    <td className="text-xs">{item.standard}</td>
+                                                    <td className="text-xs">{item.process}</td>
+                                                    <td className="text-xs">{formatData(item.startDate)}</td>
+                                                    <td className="text-xs">{formatData(item.endDate)}</td>
+                                                    <td className="text-xs">{item.quantity}</td>
+                                                    <td className="text-xs">{item.person}</td>
+                                                    <td className="text-xs">{item.finishedQty}</td>
+                                                    <td className="text-xs">{item.remark}</td>
+                                                    <td>
+                                                        <button className="btn btn-primary text-white btn-xs" onClick={() => ItemSet(item) > setEditModel(true)}>
+                                                            <i className="fa fa-pencil"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <button className="btn btn-danger text-white btn-xs" onClick={() => ItemSet(item) > setDeleteModel(true)}>
+                                                            <i className="fa fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })) : (
                                         <tr>
-                                        <td colSpan="13" className="text-center">
-                                            {/* {plant ? 'No plants found': null} */}
-                                            No Data
-                                        </td>
-                                    </tr>
+                                            <td colSpan="13" className="text-center">
+                                                {/* {plant ? 'No plants found': null} */}
+                                                No Data
+                                            </td>
+                                        </tr>
                                     )}
 
                                 </tbody>

@@ -31,7 +31,7 @@ const Header = () => {
     return (
         <div>
             <nav className="navbar navbar-expand navbar-dark bg-primary topbar">
-                <a className="navbar-brand d-block ms-1" href="/#">MIND ERP</a>
+                <a className="navbar-brand d-block ms-1" href="/#">MIND MRP</a>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                         <li className="nav-item dropdown">
