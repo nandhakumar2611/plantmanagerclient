@@ -27,8 +27,9 @@ const loading = (
   </div>
 )
 
-const DefaultLayout = React.lazy(() => import('./Components/Layout/DefaultLayout'))
-const Login         = React.lazy(() => import('./Pages/Login/Login'))
+const DefaultLayout  = React.lazy(() => import('./Components/Layout/DefaultLayout'))
+const Login          = React.lazy(() => import('./Pages/Login/Login'))
+const ForgotPassword = React.lazy(() => import('./Pages/Admin/ForgotPassword'))
 
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
           <Suspense fallback={loading}>
             <Routes>
               <Route exact path="/login" name="Login Page" element={<Login />} />
+              <Route exact path="/forgotpassword" name="forgotpassword" element={<ForgotPassword />} />
               {targetPage}
               </Routes>
             </Suspense>

@@ -88,6 +88,9 @@ const Login = () => {
                                             onChange={event => setPassword(event.target.value)}>
                                         </input>
                                     </div>
+                                    <div className=" mt-4">
+                                        <a href='./forgotpassword' className="text-decoration-none fst-normal"><h6>Forgot Password?</h6></a>
+                                    </div>
                                     <br></br>
                                     {/* submit Button  */}
                                     <div className="d-grid gap-2">
@@ -97,7 +100,7 @@ const Login = () => {
                                 <br></br>
                                 <hr></hr>
                                 <div className="text-center mt-4">
-                                    <a href='./Hero1' className="text-decoration-none fst-normal"><h6>Can't log in? Sign up for an account</h6></a>
+                                    <a href='./hero' className="text-decoration-none fst-normal"><h6>Can't log in? Sign up for an account</h6></a>
                                 </div>
                             </div>
                         </div>
