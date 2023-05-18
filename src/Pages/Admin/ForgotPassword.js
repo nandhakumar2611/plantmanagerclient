@@ -4,6 +4,7 @@ import dataService from "../../Service/dataService";
 const ForgotPassword = () => {
 
     let [loginAlert, setLoginAlert] = useState(false)
+    let [errorAlert, setErrorAlert] = useState(false)
     let [username, setUserName] = useState('')
     let [Password, setPassword] = useState('')
 
@@ -23,11 +24,8 @@ const ForgotPassword = () => {
             })
             .catch(error => {
                 console.error('SOMETHING WRONG', error);
+                setErrorAlert(true)
             })
-    }
-
-    const clearLogin = () => {
-        dataService.logout()
     }
 
     return (
@@ -40,14 +38,28 @@ const ForgotPassword = () => {
                             <div className="card-body p-4 p-sm-5">
                                 <h5 className="card-title text-center mb-5 fw-bold fs-5">Forgot Password</h5>
                                 <form onSubmit={submitform}>
+                                {errorAlert && (
+                             
+                             <div className="alert alert-warning alert-dismissible fade show" role="alert">
+                                          email is wrong !...
+                                        <button 
+                                            type="button" 
+                                            className="btn-close" 
+                                            data-bs-dismiss="alert" 
+                                            aria-label="Close" 
+                                            onClick={()=>setLoginAlert(false)}>
+                                        </button>
+                                        </div>
+                                    )}
                                     {/* Form Group (username)  */}
-                                    <div className="mb-3">
+                                    <div className="mb-3"> 
                                         <label className="mb-2" htmlFor="inputUsername">Email</label>
                                         <input
                                             type="text"
                                             className="form-control form-control-lg"
                                             id="inputUsername"
                                             placeholder="Enter email"
+                                            required
                                             onChange={event => setUserName(event.target.value)}>
                                         </input>
                                     </div>
@@ -59,6 +71,7 @@ const ForgotPassword = () => {
                                             className="form-control form-control-lg"
                                             id="inputPassword"
                                             placeholder="Enter Password"
+                                            required
                                             onChange={event => setPassword(event.target.value)}>
                                         </input>
                                     </div>
