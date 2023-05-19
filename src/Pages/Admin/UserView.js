@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import dataService from "../../Service/dataService";
 import { Link, useParams } from "react-router-dom";
+import $ from "jquery"
+import "./style.css"
 
 const UserView = () => {
 
@@ -42,8 +44,18 @@ const UserView = () => {
             })
     }
 
+    const initTable = () =>
+    {
+      $(document).ready( function () {
+        setTimeout(function() {
+            $('#example').DataTable();
+        }, 1000);
+      } );
+    }
+
     useEffect(() => {
         initMachine();
+        initTable();
     }, []);
     return (
         <>
@@ -58,7 +70,7 @@ const UserView = () => {
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
-                        <table className="table table-bordered" width="100%" cellSpacing="0">
+                        <table id="example" className="display nowrap cell-border pt-2" width="100%" cellSpacing="0">
                             <thead>
                                 <tr>
                                     <th>S.No</th>
@@ -70,8 +82,8 @@ const UserView = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {user && user.length > 0 ? (
-                                user.map((item, index) => {
+                                {/* {user && user.length > 0 ? ( */}
+                                {user.map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td className="text-xs">{item.id}</td>
@@ -92,14 +104,16 @@ const UserView = () => {
                                             </td>
                                         </tr>
                                     );
-                                })):(
-                                    <tr>
-                                                <td colSpan="6" className="text-center">
-                                                    {/* {plant ? 'No plants found': null} */}
-                                                    No Data
-                                                </td>
-                                            </tr>
-                                )}
+                                })
+                                // ):(
+                                //     <tr>
+                                //                 <td colSpan="6" className="text-center">
+                                //                     {/* {plant ? 'No plants found': null} */}
+                                //                     No Data
+                                //                 </td>
+                                //             </tr>
+                                // )
+                                }
                             </tbody>
                         </table>
                     </div>

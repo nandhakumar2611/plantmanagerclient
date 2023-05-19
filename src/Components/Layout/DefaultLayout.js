@@ -13,7 +13,7 @@ const DefaultLayout = () => {
           <div className="body pt-1 pb-5 bg-light">
             <Content/>
           </div>
-          <Footer/>
+          {/* <Footer/> */}
         </div>
     </div>
   )

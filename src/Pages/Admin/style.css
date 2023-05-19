@@ -1,0 +1,25 @@
+th {
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+  }
+  
+  th:first-child {
+    border-left: 1px solid #dddddd;
+  }
+
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current
+{
+    color: white !important;
+    border: 0px;
+    background: #0d6efd;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover
+{
+    background: white;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover
+{
+    background: #0d6efd;
+    border: 0px;
+}
