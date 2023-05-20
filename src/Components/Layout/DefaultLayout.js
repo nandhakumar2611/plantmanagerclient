@@ -10,7 +10,7 @@ const DefaultLayout = () => {
         <Header/>
         <div>
           <MenuNavbar/>
-          <div className="body pt-1 pb-5 bg-light">
+          <div className="body pt-1 vh-100 bg-light ">
             <Content/>
           </div>
           {/* <Footer/> */}

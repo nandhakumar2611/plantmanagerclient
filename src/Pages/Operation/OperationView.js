@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import dataService from "../../Service/dataService";
 import { Link, useParams } from "react-router-dom";
+import $ from "jquery"
+import "../Admin/style.css"
 
 const OperationView = () => {
 
@@ -42,8 +44,19 @@ const OperationView = () => {
             })
     }
 
+    const initTable = () =>
+    {
+      $(document).ready( function () {
+        setTimeout(function() {
+            $('#example').DataTable();
+            initOperation();
+        }, 2000);
+      } );
+    }
+
     useEffect(() => {
         initOperation();
+        initTable();
     }, []);
 
   return (
@@ -59,7 +72,7 @@ const OperationView = () => {
                             </div>
                             <div className="card-body">
                                 <div className="table-responsive">
-                                    <table className="table table-bordered" width="100%" cellSpacing="0">
+                                    <table id="example" className="display nowrap cell-border pt-2" width="100%" cellSpacing="0">
                                         <thead>
                                             <tr>
                                                 <th>S.No</th>
@@ -70,8 +83,8 @@ const OperationView = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {operation && operation.length > 0 ? (
-                                            operation.map((item, index) => {
+                                            {/* {operation && operation.length > 0 ? ( */}
+                                            {operation.map((item, index) => {
                                                 return (
                                                     <tr key={index}>
                                                         <td className="text-xs">{index+1}</td>
@@ -91,14 +104,16 @@ const OperationView = () => {
                                                         </td>
                                                     </tr>
                                                 );
-                                            })):(
-                                                <tr>
-                                                <td colSpan="5" className="text-center">
-                                                    {/* {plant ? 'No plants found': null} */}
-                                                    No Data
-                                                </td>
-                                            </tr>
-                                            )}
+                                            })
+                                            // ):(
+                                            //     <tr>
+                                            //     <td colSpan="5" className="text-center">
+                                            //         {/* {plant ? 'No plants found': null} */}
+                                            //         No Data
+                                            //     </td>
+                                            // </tr>
+                                            // )
+                                            }
                                         </tbody>
                                     </table>
                                 </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import dataService from "../../Service/dataService";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
+import $ from "jquery"
+import "../Admin/style.css"
 
 const BatchOrderView = () => {
 
@@ -53,8 +55,19 @@ const BatchOrderView = () => {
             })
     }
 
+    const initTable = () =>
+    {
+      $(document).ready( function () {
+        setTimeout(function() {
+            $('#example').DataTable();
+            initBatchOrder();
+        }, 2000);
+      } );
+    }
+
     useEffect(() => {
         initBatchOrder();
+        initTable();
     }, []);
 
   return (
@@ -70,7 +83,7 @@ const BatchOrderView = () => {
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
-                        <table className="table table-bordered" width="100%" cellSpacing="0">
+                        <table id="example" className="display nowrap cell-border pt-2" width="100%" cellSpacing="0">
                             <thead>
                                 <tr>
                                     <th>S.No</th>
@@ -85,8 +98,8 @@ const BatchOrderView = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {batchorder && batchorder.length > 0 ? (
-                                batchorder.map((item, index) => {
+                                {/* {batchorder && batchorder.length > 0 ? ( */}
+                                {batchorder.map((item, index) => {
                                     return (
                                         <tr key={index}>
                                             <td className="text-xs">{item.id}</td>
@@ -116,14 +129,16 @@ const BatchOrderView = () => {
                                             </td>
                                         </tr>
                                     );
-                                })):(
-                                    <tr>
-                                    <td colSpan="9" className="text-center">
-                                        {/* {plant ? 'No plants found': null} */}
-                                        No Data
-                                    </td>
-                                </tr>
-                                )}
+                                })
+                                // ):(
+                                //     <tr>
+                                //     <td colSpan="9" className="text-center">
+                                //         {/* {plant ? 'No plants found': null} */}
+                                //         No Data
+                                //     </td>
+                                // </tr>
+                                // )
+                                }
                             </tbody>
                         </table>
                     </div>
