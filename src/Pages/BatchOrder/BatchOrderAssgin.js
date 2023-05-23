@@ -17,11 +17,13 @@ const BatchOrderAssgin = () => {
     let [endDate, setEndDate] = useState('')
     let [quantity, setQuantity] = useState('')
     let [person, setPerson] = useState('')
+    let [machine, setMachine] = useState('')
     let [status, setStatus] = useState('')
     let [priority, setPriority] = useState('')
     let [batchorder, setBatchOrder] = useState([])
     let [listOperation, setListOperation] = useState([])
     let [listUser, setListUser] = useState([])
+    let [listMachine, setListMachine] = useState([])
     let [taskList, setTaskList] = useState([])
     let [taskListId, setTaskListId] = useState('')
     let [batchorderId, setBatchOrderId] = useState('')
@@ -33,13 +35,13 @@ const BatchOrderAssgin = () => {
 
         dataService.getexe(url)
             .then(response => {
-                console.log("USER DATA1", response.data);
+                console.log("BATCH ORDER INFORMATION", response.data);
                 setBatchOrder(response.data)
                 setBatchOrderId(response.data.item)
                 // initOperation();
             })
             .catch(error => {
-                console.log("SOMETHING WRONG", error);
+                console.log("BATCH ORDER INFORMATION ERROR", error);
             })
     }
 
@@ -50,11 +52,11 @@ const BatchOrderAssgin = () => {
 
         dataService.getexe(`/auth/batchorder/${id}/tasklists`)
             .then(response => {
-                console.log("USER DATA", response.data);
+                console.log("BATCH ORDER TASK LIST INFORMATION", response.data);
                 setTaskList(response.data)
             })
             .catch(error => {
-                console.log("SOMETHING WRONG", error);
+                console.log("BATCH ORDER TASK LIST INFORMATION ERROR", error);
             })
     }
 
@@ -134,7 +136,7 @@ const BatchOrderAssgin = () => {
         const url = `/auth/products/${batchorderId}/operation`;    // uRL to get all operation
         dataService.getexe(url)
             .then(response => {
-                console.log("Operation DATAA", response.data);
+                console.log("OPERATION INFORMATION", response.data);
                 let result = response.data;
                 result.map((opt) => {
                     return arr.push({ value: opt.operationName, label: opt.operationName })
@@ -142,7 +144,7 @@ const BatchOrderAssgin = () => {
                 setListOperation(arr)
             })
             .catch(error => {
-                console.log("ROLE DATA ERROR", error);
+                console.log("OPERATION INFORMATION ERROR", error);
             })
     }
     const initUser = () => {
@@ -151,7 +153,7 @@ const BatchOrderAssgin = () => {
         const url = `/auth/roles/3/users`;    // uRL to get all operation
         dataService.getexe(url)
             .then(response => {
-                console.log("User DATAA", response.data);
+                console.log("USER INFORMATION", response.data);
                 let result = response.data;
                 result.map((opt) => {
                     return arr.push({ value: opt.username, label: opt.username })
@@ -159,7 +161,24 @@ const BatchOrderAssgin = () => {
                 setListUser(arr)
             })
             .catch(error => {
-                console.log("ROLE DATA ERROR", error);
+                console.log("USER INFORMATION ERROR", error);
+            })
+    }
+    const initMachine = () => {
+        console.log('description',description)
+        const arr = [];
+        const url = `/auth/operation/${description}/machine`;    // uRL to get all operation
+        dataService.getexe(url)
+            .then(response => {
+                console.log("MACHINE INFORMATION", response.data);
+                let result = response.data;
+                result.map((opt) => {
+                    return arr.push({ value: opt.machineName, label: opt.machineName })
+                })
+                setListMachine(arr)
+            })
+            .catch(error => {
+                console.log("MACHINE INFORMATION ERROR", error);
             })
     }
 
@@ -198,13 +217,21 @@ const BatchOrderAssgin = () => {
         ]
 
         const handleSelect = (event) => {
-            console.log('ROLE', event);
+            console.log('OPERATION', event);
             setDescription(event.value);
+            setTimeout(() => {
+                initMachine()
+            }, 2000);
         }
 
         const handleSelect1 = (event) => {
-            console.log('ROLE', event);
+            console.log('USER', event);
             setPerson(event.value);
+        }
+
+        const handleSelect2 = (event) => {
+            console.log('MACHINE', event);
+            setMachine(event.value);
         }
 
         return (<div className="modal show fade" style={{ display: 'block' }}>
@@ -212,30 +239,22 @@ const BatchOrderAssgin = () => {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Assign Task</h5>
-                        <button type="button" className="btn-close" onClick={() => SetItem() > setAddModel(false)}>
+                        <button type="button" className="btn-close" onClick={() => setAddModel(false)}>
 
                         </button>
                     </div>
                     <div className="modal-body">
                         <form onSubmit={submitform}>
                             <div className="row gx-3 mb-3">
-                                {/*  Form Group (Company Name)--> */}
+                                {/*  Form Group (Process Description)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputContactNo">Process Description</label>
-                                    {/* <input
-                                        className="form-control"
-                                        id="inputContactNo"
-                                        type="text"
-                                        placeholder="Process Description"
-                                        onChange={evevt => setDescription(evevt.target.value)} >
-                                    </input> */}
                                     <Select
                                         options={listOperation}
                                         onChange={handleSelect}
-                                    // isMulti
                                     />
                                 </div>
-                                {/* Form Group (Person)--> */}
+                                {/* Form Group (Specification)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputPassword">Specification</label>
                                     <input
@@ -246,7 +265,7 @@ const BatchOrderAssgin = () => {
                                         onChange={evevt => setSpecification(evevt.target.value)} >
                                     </input>
                                 </div>
-                                {/*  Form Group (Person)--> */}
+                                {/*  Form Group (Standard)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputPassword">Standard</label>
                                     <input
@@ -259,7 +278,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                             </div>
                             <div className="row gx-3 mb-3">
-                                {/*  Form Group (Company Name)--> */}
+                                {/*  Form Group (Process)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputContactNo">Process</label>
                                     <input
@@ -270,7 +289,7 @@ const BatchOrderAssgin = () => {
                                         onChange={evevt => setProcess(evevt.target.value)} >
                                     </input>
                                 </div>
-                                {/* Form Group (Person)--> */}
+                                {/* Form Group (Start Date)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputPassword">Start Date</label>
                                     <input
@@ -281,7 +300,7 @@ const BatchOrderAssgin = () => {
                                         onChange={evevt => setStartDate(evevt.target.value)} >
                                     </input>
                                 </div>
-                                {/*  Form Group (Person)--> */}
+                                {/*  Form Group (End Date)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputPassword">End Date</label>
                                     <input
@@ -294,7 +313,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                             </div>
                             <div className="row gx-3 mb-3">
-                                {/*  Form Group (Company Name)--> */}
+                                {/*  Form Group (Quantity)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputContactNo">Quantity</label>
                                     <input
@@ -305,20 +324,20 @@ const BatchOrderAssgin = () => {
                                         onChange={evevt => setQuantity(evevt.target.value)} >
                                     </input>
                                 </div>
-                                {/*  Form Group (Company Name)--> */}
+                                {/*  Form Group (Person)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputContactNo">Person</label>
-                                    {/* <input
-                                        className="form-control"
-                                        id="inputContactNo"
-                                        type="text"
-                                        placeholder="Person"
-                                        onChange={evevt => setPerson(evevt.target.value)} >
-                                    </input> */}
                                     <Select
                                         options={listUser}
                                         onChange={handleSelect1}
-                                    // isMulti
+                                    />
+                                </div>
+                                {/* Form Group (Machine)--> */}
+                                <div className="col-md-4">
+                                    <label className="small mb-1" htmlFor="inputPassword">Machine</label>
+                                    <Select
+                                        options={listMachine}
+                                        onChange={handleSelect2}
                                     />
                                 </div>
                             </div>
@@ -509,7 +528,7 @@ const BatchOrderAssgin = () => {
                     <div className="card-header d-flex flex-row align-items-center justify-content-between py-3 bg-light">
                         <h6 className="m-0 font-weight-bold text-primary">Assgin Batch Order</h6>
                         <div>
-                            <a onClick={() => setAddModel(true)} className="btn btn-sm btn-primary shadow-sm">
+                            <a onClick={() => SetItem() > setAddModel(true)} className="btn btn-sm btn-primary shadow-sm">
                                 <i className="fa fa-plus fa-sm text-white-50"></i> Assign</a>
                         </div>
                     </div>
@@ -577,6 +596,7 @@ const BatchOrderAssgin = () => {
                                             return (
                                                 <tr key={index}>
                                                     <td className="text-xs">{index + 1}</td>
+                                                    <td className="text-xs">{item.description}</td>
                                                     <td className="text-xs">{item.description}</td>
                                                     <td className="text-xs">{item.specification}</td>
                                                     <td className="text-xs">{item.standard}</td>
