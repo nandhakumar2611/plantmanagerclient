@@ -66,6 +66,34 @@ const BatchOrderAssgin = () => {
         // initOperation();
     }, []);
 
+    // function BadgeComponent(status) {
+    //     let badgeClassName = 'badge';
+
+    //     if(status === 'Not Started'){
+    //         badgeClassName += 'badge-danger';
+    //     }
+    //     else if (status === 'On Going') {
+    //         badgeClassName += 'badge-warning';
+    //     }
+    //     else{
+    //         badgeClassName += 'badge-success';
+    //     }
+    // }
+
+    const getClassName = (value) => {
+
+        if(value === "Not Started"){
+            return 'badge bg-danger';
+        }
+        else if (value === 'On Going') {
+            return 'badge bg-warning';
+        }
+        else{
+            return 'badge bg-success';
+        }
+
+    }
+
     const ItemSet = (item) => {
         setTaskListId(item.id)
         setDescription(item.description)
@@ -164,10 +192,10 @@ const BatchOrderAssgin = () => {
                 console.log("USER INFORMATION ERROR", error);
             })
     }
-    const initMachine = () => {
-        console.log('description',description)
+    const initMachine = (desc) => {
+        console.log('description',desc)
         const arr = [];
-        const url = `/auth/operation/${description}/machine`;    // uRL to get all operation
+        const url = `/auth/operation/${desc}/machine`;    // uRL to get all operation @GetMapping("/operation/{id}/machine")
         dataService.getexe(url)
             .then(response => {
                 console.log("MACHINE INFORMATION", response.data);
@@ -196,6 +224,7 @@ const BatchOrderAssgin = () => {
                 endDate: endDate,
                 quantity: quantity,
                 person: person,
+                machine: machine,
                 status: "Not Started",
                 priority: "1"
             }
@@ -219,9 +248,11 @@ const BatchOrderAssgin = () => {
         const handleSelect = (event) => {
             console.log('OPERATION', event);
             setDescription(event.value);
+            console.log('description',description)
             setTimeout(() => {
-                initMachine()
-            }, 2000);
+                console.log('description',event.value)
+                initMachine(event.value)
+            }, 5000);
         }
 
         const handleSelect1 = (event) => {
@@ -248,7 +279,7 @@ const BatchOrderAssgin = () => {
                             <div className="row gx-3 mb-3">
                                 {/*  Form Group (Process Description)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputContactNo">Process Description</label>
+                                    <label className="small mb-1" htmlFor="inputProessDesc">Process Description</label>
                                     <Select
                                         options={listOperation}
                                         onChange={handleSelect}
@@ -256,7 +287,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                                 {/* Form Group (Specification)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputPassword">Specification</label>
+                                    <label className="small mb-1" htmlFor="inputSpecification">Specification</label>
                                     <input
                                         className="form-control"
                                         id="inputLocation"
@@ -267,7 +298,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                                 {/*  Form Group (Standard)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputPassword">Standard</label>
+                                    <label className="small mb-1" htmlFor="inputStandard">Standard</label>
                                     <input
                                         className="form-control"
                                         id="inputLocation"
@@ -280,7 +311,7 @@ const BatchOrderAssgin = () => {
                             <div className="row gx-3 mb-3">
                                 {/*  Form Group (Process)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputContactNo">Process</label>
+                                    <label className="small mb-1" htmlFor="inputProcess">Process</label>
                                     <input
                                         className="form-control"
                                         id="inputContactNo"
@@ -291,7 +322,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                                 {/* Form Group (Start Date)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputPassword">Start Date</label>
+                                    <label className="small mb-1" htmlFor="inputStartDate">Start Date</label>
                                     <input
                                         className="form-control"
                                         id="inputLocation"
@@ -302,7 +333,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                                 {/*  Form Group (End Date)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputPassword">End Date</label>
+                                    <label className="small mb-1" htmlFor="inputEndDate">End Date</label>
                                     <input
                                         className="form-control"
                                         id="inputLocation"
@@ -315,7 +346,7 @@ const BatchOrderAssgin = () => {
                             <div className="row gx-3 mb-3">
                                 {/*  Form Group (Quantity)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputContactNo">Quantity</label>
+                                    <label className="small mb-1" htmlFor="inputQuantity">Quantity</label>
                                     <input
                                         className="form-control"
                                         id="inputContactNo"
@@ -326,7 +357,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                                 {/*  Form Group (Person)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputContactNo">Person</label>
+                                    <label className="small mb-1" htmlFor="inputPerson">Person</label>
                                     <Select
                                         options={listUser}
                                         onChange={handleSelect1}
@@ -334,7 +365,7 @@ const BatchOrderAssgin = () => {
                                 </div>
                                 {/* Form Group (Machine)--> */}
                                 <div className="col-md-4">
-                                    <label className="small mb-1" htmlFor="inputPassword">Machine</label>
+                                    <label className="small mb-1" htmlFor="inputMachine">Machine</label>
                                     <Select
                                         options={listMachine}
                                         onChange={handleSelect2}
@@ -526,7 +557,7 @@ const BatchOrderAssgin = () => {
 
                 <div className="card shadow mb-4">
                     <div className="card-header d-flex flex-row align-items-center justify-content-between py-3 bg-light">
-                        <h6 className="m-0 font-weight-bold text-primary">Assgin Batch Order</h6>
+                        <h6 className="m-0 font-weight-bold text-primary">Assign Batch Order</h6>
                         <div>
                             <a onClick={() => SetItem() > setAddModel(true)} className="btn btn-sm btn-primary shadow-sm">
                                 <i className="fa fa-plus fa-sm text-white-50"></i> Assign</a>
@@ -577,6 +608,7 @@ const BatchOrderAssgin = () => {
                                     <tr>
                                         <th>S.No</th>
                                         <th>Process Description</th>
+                                        <th>Machine</th>
                                         <th>Specification</th>
                                         <th>Standard</th>
                                         <th>Process</th>
@@ -586,6 +618,7 @@ const BatchOrderAssgin = () => {
                                         <th>Person</th>
                                         <th>Finished Qty</th>
                                         <th>Remarks</th>
+                                        <th>Status</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -597,7 +630,7 @@ const BatchOrderAssgin = () => {
                                                 <tr key={index}>
                                                     <td className="text-xs">{index + 1}</td>
                                                     <td className="text-xs">{item.description}</td>
-                                                    <td className="text-xs">{item.description}</td>
+                                                    <td className="text-xs">{item.machine}</td>
                                                     <td className="text-xs">{item.specification}</td>
                                                     <td className="text-xs">{item.standard}</td>
                                                     <td className="text-xs">{item.process}</td>
@@ -607,6 +640,7 @@ const BatchOrderAssgin = () => {
                                                     <td className="text-xs">{item.person}</td>
                                                     <td className="text-xs">{item.finishedQty}</td>
                                                     <td className="text-xs">{item.remark}</td>
+                                                    <td><span className={getClassName(item.status)}>{item.status}</span></td>
                                                     <td>
                                                         <button className="btn btn-primary text-white btn-xs" onClick={() => ItemSet(item) > setEditModel(true)}>
                                                             <i className="fa fa-pencil"></i>
@@ -621,7 +655,7 @@ const BatchOrderAssgin = () => {
                                             );
                                         })) : (
                                         <tr>
-                                            <td colSpan="13" className="text-center">
+                                            <td colSpan="14" className="text-center">
                                                 {/* {plant ? 'No plants found': null} */}
                                                 No Data
                                             </td>

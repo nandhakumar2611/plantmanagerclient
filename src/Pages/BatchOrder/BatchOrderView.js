@@ -77,9 +77,9 @@ const BatchOrderView = () => {
 
             <div className="card shadow mb-4">
                 <div className="card-header d-flex flex-row align-items-center justify-content-between py-3 bg-light">
-                    <h6 className="m-0 font-weight-bold text-primary">BatchOrder Table</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Sales Order Table</h6>
                     <a href="/batchorder" className="btn btn-sm btn-primary shadow-sm">
-                        <i className="fa fa-plus fa-sm text-white-50"></i> Add BatchOrder</a>
+                        <i className="fa fa-plus fa-sm text-white-50"></i> Add Sales Order</a>
                 </div>
                 <div className="card-body">
                     <div className="table-responsive">
@@ -87,7 +87,7 @@ const BatchOrderView = () => {
                             <thead>
                                 <tr>
                                     <th>S.No</th>
-                                    <th>Comapany Name</th>
+                                    <th>Company Name</th>
                                     <th>Item </th>
                                     <th>Production Qty </th>
                                     <th>Start Date </th>

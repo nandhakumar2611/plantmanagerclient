@@ -2,8 +2,8 @@ import axios from "axios";
 
 const instance=axios.create({
 
-    baseURL: 'http://localhost:8081/api',
-    // baseURL: 'http://mindjobcard.ap-south-1.elasticbeanstalk.com/api',
+    // baseURL: 'http://localhost:8081/api',
+    baseURL: 'http://mindjobcard.ap-south-1.elasticbeanstalk.com/api',
     
 
     headers: {

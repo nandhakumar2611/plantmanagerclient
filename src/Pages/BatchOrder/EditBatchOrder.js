@@ -125,7 +125,7 @@ const EditBatchOrder = () => {
       <div className="col-xl-8">
         {/*  Batch Order card */}
         <div className="card mb-4">
-          <div className="card-header">Batch Order Details</div>
+          <div className="card-header">Sales Order Details</div>
           <div className="card-body">
             <form onSubmit={submitform}>
             <div className="row gx-3 mb-3">

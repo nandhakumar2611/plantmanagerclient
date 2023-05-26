@@ -76,7 +76,7 @@ const PlantView = () => {
                                     <thead>
                                         <tr>
                                             <th>S.No</th>
-                                            <th>PlantName</th>
+                                            <th>Plant Name</th>
                                             <th>Location</th>
                                             <th>Edit</th>
                                             <th>Delete</th>

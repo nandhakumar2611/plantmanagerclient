@@ -3,8 +3,11 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min";
 // Jquery package link 
 import "../node_modules/jquery/dist/jquery.min.js";
-// Datatables package link
+// React DataPicker link
 import "../node_modules/react-datepicker/dist/react-datepicker.css";
+// Toast link
+import "../node_modules/react-toastify/dist/ReactToastify.css"
+// Datatables package link
 import "../node_modules/datatables.net-dt/js/dataTables.dataTables";
 import "../node_modules/datatables.net-dt/css/jquery.dataTables.min.css";
 import "../node_modules/datatables.net-buttons/js/dataTables.buttons.js";

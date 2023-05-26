@@ -89,7 +89,7 @@ const BatchOrder = () => {
       <div className="col-xl-8">
         {/*  Account details card */}
         <div className="card mb-4">
-          <div className="card-header">Batch Order Details</div>
+          <div className="card-header">Sales Order Details</div>
           <div className="card-body">
             <form onSubmit={submitform}>
             <div className="row gx-3 mb-3">
@@ -168,12 +168,12 @@ const BatchOrder = () => {
                 </div>
               </div>
               <div className="row gx-3 mb-3">
-                {/*  Form Group (Puchase No)--> */}
+                {/*  Form Group (Purchase No)--> */}
                 <div className="col-md-6">
-                  <label className="small mb-1" htmlFor="inputPuchaseNo">Puchase No</label>
+                  <label className="small mb-1" htmlFor="inputPuchaseNo">Purchase No</label>
                   <input 
                     className="form-control" 
-                    id="inputPuchaseNo" 
+                    id="inputPurchaseNo" 
                     type="text" 
                     placeholder="Purchase No"
                     onChange={evevt => setPurchaseNo(evevt.target.value)} >    
@@ -239,8 +239,8 @@ const BatchOrder = () => {
                   </input>
                 </div>
               </div>
-              <div className="row gx-3 mb-3">
-                {/*  Form Group (Accurate Qty)--> */}
+              {/* <div className="row gx-3 mb-3">
+                
                 <div className="col-md-6">
                   <label className="small mb-1" htmlFor="inputAccurateQty">Accurate Qty</label>
                   <input 
@@ -251,7 +251,7 @@ const BatchOrder = () => {
                     onChange={evevt => setAccurateQty(evevt.target.value)} >    
                   </input>
                 </div>
-                {/*  Form Group (Rejected Date)--> */}
+                 
                 <div className="col-md-6">
                   <label className="small mb-1" htmlFor="inputRejectedQty">Rejected Qty</label>
                   <input 
@@ -262,7 +262,7 @@ const BatchOrder = () => {
                     onChange={evevt => setRejectedQty(evevt.target.value)} >    
                   </input>
                 </div>
-              </div>
+              </div> */}
               {/*  Form Row --> */}
               <div className="row gx-3 mb-3">
                 {/*  Form Group (Priority)--> */}

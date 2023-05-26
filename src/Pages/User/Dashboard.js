@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import dataService from "../../Service/dataService";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   let [standard, setStandard] = useState(0)
@@ -39,7 +40,8 @@ useEffect(() => {
 
         {/* <!-- Earnings (Monthly) Card Example --> */}
         <div className="col-xl-3 col-md-6 mb-4">
-          <div className="card border-start border-0 border-5 shadow border-primary h-100 py-2">
+          <Link to={`/taskview`} className='text-decoration-none'>
+          <div className="card border-start border-0 border-5 shadow border-primary h-100 py-2 ">
             <div className="card-body">
               <div className="row no-gutters align-items-center">
                 <div className="col mr-2">
@@ -53,7 +55,9 @@ useEffect(() => {
               </div>
             </div>
           </div>
+          </Link>
         </div>
+        
 
         {/* <!-- Earnings (Monthly) Card Example --> */}
         <div className="col-xl-3 col-md-6 mb-4">

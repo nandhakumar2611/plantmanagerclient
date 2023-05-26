@@ -70,7 +70,7 @@ const Machine = () => {
                             <form onSubmit={submitform}>
                                 {/*  Form Group (Machine Name) */}
                                 <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputMachineName">Machine name</label>
+                                    <label className="small mb-1" htmlFor="inputMachineName">Machine Name</label>
                                     <input
                                         className="form-control"
                                         id="inputMachineName"

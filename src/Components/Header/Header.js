@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import dataService from "../../Service/dataService";
 
 const Header = () => {
@@ -40,9 +40,8 @@ const Header = () => {
                             </a>
                             <div className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                                 <a className="dropdown-item" href="./profile">Profile</a>
+                                <button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModall">Switch Role</button>
                                 <a className="dropdown-item" href="/login" onClick={() => handlelogout()}>Logout</a>
-                                <a className="dropdown-item" href="./Hero">Demo</a>
-                                <button type="button" className="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModall">changes</button>
                             </div>
                         </li>
                     </ul>
@@ -52,18 +51,17 @@ const Header = () => {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Switch Role</h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-                            <p>Woohoo, you're reading this text in a modal!</p>
+                            <p>Currently you logged in as <b>{dataService.getCurrentRole()}</b></p>
+                            <p>Switch to</p>
+                            <div className="d-grid gap-2">
                             {currentUser.roles && currentUser.roles.map((role, index) => 
-                            <button  type="button" className="btn btn-secondary" onClick={ () => ChangeRole(index)} data-bs-dismiss="modal" key={index}>{role}</button>
+                            <button  type="button" className="btn btn-outline-primary" onClick={ () => ChangeRole(index)} data-bs-dismiss="modal" key={index}>{role}</button>
                             )}
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary">Save changes</button>
+                            </div>
                         </div>
                     </div>
                 </div>

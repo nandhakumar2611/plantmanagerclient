@@ -32,7 +32,7 @@ const menuadmin = [
         ],
     },
     {
-        title: 'BatchOrder',
+        title: 'Sales Order',
         url : '/BatchOrderview',
     },
     {
@@ -48,7 +48,7 @@ const menumanager = [
         url : '/managerdashboard',
     },
     {
-        title: 'BatchOrder',
+        title: 'Sales Order',
         url : '/BatchOrderview',
     },
 ]

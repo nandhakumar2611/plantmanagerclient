@@ -136,6 +136,7 @@ const TaskView = () => {
             }
             console.log('PRINTING POSTDATA - ADD USER', postData);
             setEditModel(false)
+            initBatchOrder();
             dataService.postexe(`auth/tasklist/${taskListId}/tasktime`, postData)
                 .then(response => {
                     console.log('USER ADDED SUCCESSFULLY', response.data);
@@ -155,6 +156,7 @@ const TaskView = () => {
             }
             console.log('PRINTING POSTDATA - ADD USER', postData);
             setEditModel(false)
+            initBatchOrder();
             dataService.putexe(`auth/tasklist/user/${taskListId}`, postData)
                 .then(response => {
                     console.log('USER ADDED SUCCESSFULLY', response.data);
