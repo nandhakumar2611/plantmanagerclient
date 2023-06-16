@@ -77,7 +77,7 @@ const OperationView = () => {
                                             <tr>
                                                 <th>S.No</th>
                                                 <th>Operation Name</th>
-                                                <th>Operation Descriptin</th>
+                                                <th>Operation Description</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>

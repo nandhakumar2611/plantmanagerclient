@@ -77,7 +77,7 @@ const MachineView = () => {
                                             <tr>
                                                 <th>S.No</th>
                                                 <th>Machine Name</th>
-                                                <th>Machine Descriptin</th>
+                                                <th>Machine Description</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>

@@ -27,6 +27,7 @@ const BatchOrderAssgin = () => {
     let [taskList, setTaskList] = useState([])
     let [taskListId, setTaskListId] = useState('')
     let [batchorderId, setBatchOrderId] = useState('')
+    
 
     const { id } = useParams();
     const url = `/auth/batchorder/${id}`
@@ -63,7 +64,8 @@ const BatchOrderAssgin = () => {
     useEffect(() => {
         initBatchOrder();
         initTaskList();
-        // initOperation();
+        initOperation();
+        initUser();
     }, []);
 
     // function BadgeComponent(status) {
@@ -105,7 +107,10 @@ const BatchOrderAssgin = () => {
         setQuantity(item.quantity)
         setPerson(item.person)
         console.log(item)
+        
     }
+    const defaultValue = { value: description, label: description} // Note we need some specific function to call this method
+    const defaultValue1 = { value: person, label: person}
 
     const SetItem = () => {
         initOperation();
@@ -399,7 +404,10 @@ const BatchOrderAssgin = () => {
         //             console.log("SOMETHING WRONG", error);
         //         })
         // }
-
+        const handleSelect3 = (event) => {
+            console.log('Item',event);
+            setDescription(event.value);
+          }
 
 
         const submitform = (evevt) => {
@@ -441,14 +449,21 @@ const BatchOrderAssgin = () => {
                                 {/*  Form Group (Company Name)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputContactNo">Process Description</label>
-                                    <input
+                                    {/* <input
                                         className="form-control"
                                         id="inputContactNo"
                                         type="text"
                                         placeholder="Process Description"
                                         value={description}
                                         onChange={evevt => setDescription(evevt.target.value)} >
-                                    </input>
+                                    </input> */}
+                                    <Select
+                                        clasName="basic-single"
+                                        options={listOperation}
+                                        value={defaultValue}
+                                        filterOption={(option, searchText) =>option.label.toLowerCase().includes(searchText.toLowerCase())}
+                                        onChange={handleSelect3} >
+                                    </Select>
                                 </div>
                                 {/* Form Group (Person)--> */}
                                 <div className="col-md-4">
@@ -529,14 +544,21 @@ const BatchOrderAssgin = () => {
                                 {/*  Form Group (Company Name)--> */}
                                 <div className="col-md-4">
                                     <label className="small mb-1" htmlFor="inputContactNo">Person</label>
-                                    <input
+                                    {/* <input
                                         className="form-control"
                                         id="inputContactNo"
                                         type="text"
                                         placeholder="Person"
                                         value={person}
                                         onChange={evevt => setPerson(evevt.target.value)} >
-                                    </input>
+                                    </input> */}
+                                    <Select
+                                        clasName="basic-single"
+                                        options={listUser}
+                                        value={defaultValue1}
+                                        filterOption={(option, searchText) =>option.label.toLowerCase().includes(searchText.toLowerCase())}
+                                        onChange={handleSelect3} >
+                                    </Select>
                                 </div>
                             </div>
                             <div className="modal-footer">

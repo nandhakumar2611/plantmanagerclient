@@ -76,7 +76,7 @@ const ProductView = () => {
                                 <tr>
                                     <th>S.No</th>
                                     <th>Product Name</th>
-                                    <th>Product Descriptin</th>
+                                    <th>Product Description</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>

@@ -70,7 +70,7 @@ const Product = () => {
                             <form onSubmit={submitform}>
                                 {/*  Form Group (product name) */}
                                 <div className="mb-3">
-                                    <label className="small mb-1" htmlFor="inputProductName">Product name</label>
+                                    <label className="small mb-1" htmlFor="inputProductName">Product Name</label>
                                     <input
                                         className="form-control"
                                         id="inputProductName"

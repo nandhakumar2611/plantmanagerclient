@@ -100,7 +100,7 @@ const BatchOrder = () => {
                     className="form-control" 
                     id="inputCompanyName" 
                     type="text" 
-                    placeholder="Comapany Name"
+                    placeholder="Company Name"
                     onChange={evevt => setCompanyName(evevt.target.value)} >    
                   </input>
                 </div>
